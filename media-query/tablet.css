@@ -1,0 +1,159 @@
+@media only screen and (max-width: 992px) {
+
+    
+    
+
+    .navbar {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 23px 0;
+        background-color: rgb(33,37,41);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+    }
+    
+    .navbar nav {
+        position: absolute;
+        top: 80px;
+        height: 400px;
+        left: 0;
+        right: 0;
+        height: 0;
+        width: 100vw;
+        z-index: 99;
+        background-color: rgb(33,37,41);
+        transition: 0.4s;
+        overflow: hidden;
+    }
+
+    .navbar nav.aktif {
+        height: 156px;
+    }
+    
+    .navbar nav {
+        order: 2;
+    }
+    .navbar .kiri {
+        order: 1;
+    }
+    .navbar button {
+        order: 3;
+    }
+    
+    .navbar .kiri a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 20px;
+    }
+    
+    .navbar nav ul {
+        display: block;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .navbar nav ul li {
+        list-style: none;
+        margin: 0 15px;
+    }
+
+    .navbar nav ul li {
+        color: #ffcc70;
+    }
+    
+    .navbar nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 19px;
+        font-weight: 400;
+    }
+    
+    .navbar nav ul li a.kuning {
+        color: #ffcc70;
+    }
+    
+    .navbar nav ul li a:hover {
+        color: #ffcc70;
+    }
+    
+   .navbar button {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        cursor: pointer;
+        width: 60px;
+        height: 40px;
+        visibility: visible;
+    }
+    
+    .navbar button i {
+        font-size: 2.48rem;
+        padding: 6px 12px;
+        background-color: transparent;
+        color: #ffffff8c;
+    }
+    
+    
+
+    #digital {
+        padding-top: 50px;
+        font-family: 'Viga', sans-serif;
+    }
+    
+    #digital h2 {
+        font-size: 2.57rem;
+        font-weight: 500;
+    }
+    
+    #digital .container-digital {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding-top: 50px;
+    }
+    
+    #digital .container-digital .digital-kiri {
+        flex-basis: 90%;
+    }
+    
+    #digital .container-digital .digital-kiri h2 {
+        margin-bottom: 7px;
+    }
+    
+    #digital .container-digital .digital-kiri p {
+        font-size: 1.6em;
+        line-height: 1.6;
+    }
+
+    #digital .container-digital .digital-kanan {
+        flex-basis: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    #digital .container-digital .digital-kanan img {
+        width: 480px;
+        object-fit: cover;
+    }
+
+    #daftar-surat .daftar-body {
+        margin-top: 24px;
+        display: grid;
+        grid-template-columns: repeat(2, 45vw);
+        justify-content: center;
+        align-items: center;
+        margin: 0 5vw;
+        gap: 15px;
+    }
+
+}

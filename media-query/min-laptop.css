@@ -1,0 +1,58 @@
+@media screen and (max-width: 1200px) {
+
+    .home-content {
+        display: grid;
+        place-items: center;
+        gap: 0px;
+        text-align: center;
+        color: #fff;
+        
+    }
+
+    .home-content .content-kiri {
+        align-self: flex-end;
+    }
+
+    .home-content .content-kiri h2, span {
+        font-size: 25.7px;
+        font-weight: 500;
+        font-family: 'Viga', sans-serif!important;
+        margin-bottom: 10px;
+    }
+    
+    .content-kiri, .content-kanan {
+        align-self: flex-start;
+    }
+    
+    .home-content .content-kiri h2 span {
+        color: #ffcc70;
+    }
+    
+    .home-content .content-kiri p {
+        font-size: 16px;
+        font-weight: 550;
+        font-family: 'Viga', sans-serif!important;
+        margin-bottom: 18px;
+    }
+    
+    .home-content .content-kiri a {
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+        background-color: #0D6EFD;
+        font-size: 16px;
+        font-weight: 400;
+        font-family: 'Viga', sans-serif !important;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    
+    .home-content .content-kiri a i {
+        font-size: 14px;
+        background-color: #fff;
+        color: #0a58ca;
+        padding: 3px;
+        border-radius: 50%;
+    }
+    
+}
