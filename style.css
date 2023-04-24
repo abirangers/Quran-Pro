@@ -1,14 +1,14 @@
-@import "css/navbar.css";
-@import "css/home.css";
-@import "css/digital.css";
-@import "css/daftar-surat.css";
-@import "css/isi-surat.css";
-@import "css/about.css";
-@import "css/contact.css";
-@import "media-query/max-laptop.css";
-@import "media-query/min-laptop.css";
-@import "media-query/tablet.css";
-@import "media-query/handphone.css";
+@import "assets/css/navbar.css";
+@import "assets/css/home.css";
+@import "assets/css/digital.css";
+@import "assets/css/daftar-surat.css";
+@import "assets/css/isi-surat.css";
+@import "assets/css/about.css";
+@import "assets/css/contact.css";
+@import "assets/media-query/max-laptop.css";
+@import "assets/media-query/min-laptop.css";
+@import "assets/media-query/tablet.css";
+@import "assets/media-query/handphone.css";
 
 * {
     margin: 0;

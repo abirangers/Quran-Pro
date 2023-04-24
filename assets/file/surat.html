@@ -5,19 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../../style.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Viga&display=swap" rel="stylesheet">
     <style>
         body {
             background: url(../img/bukanangka.jpg);
             width: 100%;
             height: 100%;
-            padding-top: 77px;
-            /* overflow:visible; */
-        }
-
-        #home {
-            position: static;
         }
     </style>
 </head>
@@ -25,39 +19,35 @@
 
     <div id="home">
         <div class="navbar">
-            <div class="kiri"><a href="../index.html">Qur'an Pro</a></div>
+            <div class="kiri"><a href="../../index.html">Qur'an Pro</a></div>
             <button><i class="fa-solid fa-bars fa-2xl"></i></button>
             <nav>
                 <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="quran.html" class="kuning">Qur'an</a></li>
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="quran.html">Qur'an</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>      
                 </ul>
             </nav>
         </div>
 
-        <div id="daftar-surat">
-            <div class="daftar-header">
-                <img src="../img/alquranull-karim.svg" alt="">
-                <input type="text" placeholder="Cari Surah..." class="searchInput">
-                <h3>Daftar Surah</h3>
-            </div>
+        <div id="surat">
+            <div class="container-surat">
+                <a href="quran.html">kembali</a>
+                <div class="judul-surat"></div>
+                
+                <div class="content-surat">
             <!-- <hr> -->
-            <div class="container-daftar-surat">
-                <div class="daftar-body">
-                    
-                    
-            </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <footer>
-        Copyright 2023 Qur'an Pro | Devacto Rekayasa Perangkat Lunak
-    </footer>
- 
-    <script src="../js/daftarsurat.js"></script>
+
+        <footer>
+            Copyright 2023 Qur'an Pro | Devacto Rekayasa Perangkat Lunak
+        </footer>
+         <!-- <script src="../js/script.js"></script> -->
+    <script src="../js/surat.js"></script>
     <script src="../js/index.js"></script>
     <script src="https://kit.fontawesome.com/7ff3bc0990.js" crossorigin="anonymous"></script>
 </body>
