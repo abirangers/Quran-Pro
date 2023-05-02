@@ -11,7 +11,7 @@ function getURL(e) {
 }
 
 const nomorSurat = getURL('nomorsurat');
-// console.log(nomorsurat);
+
 
 function getSurat() {
     fetch(`https://equran.id/api/surat/${nomorSurat}`)
