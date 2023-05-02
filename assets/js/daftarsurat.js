@@ -39,10 +39,10 @@ function daftarSurat() {
     }
     daftarSurat();
     
-    window.addEventListener("scroll", function () {
-        var arrow = document.querySelector("#arrow");
-        arrow.classList.toggle("scrolled", window.scrollY > 500);
-    });
+window.addEventListener("scroll", function () {
+    var arrow = document.querySelector("#arrow");
+    arrow.classList.toggle("scrolled", window.scrollY > 500);
+});
 
 
     
