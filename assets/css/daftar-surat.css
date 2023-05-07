@@ -26,21 +26,26 @@
     margin: 10px 0;
 }
 
-#daftar-surat .daftar-header input {
+#daftar-surat .daftar-header .searchInput {
     width: 63vw;
     max-width: 620px;
     height: 40px;
     font-size: 15px;
     text-align: center;
     font-family: 'JetBrains Mono', monospace;
-    background: #e6e6e6;
+    background: #fff;
     color: #5c5b64;
-    border: 1px solid #000;
+    border: 1px solid rgb(203 213 225/1);
     margin: 20px 0;
     padding-left: 10px;
-    border-radius: 20px;
+    border-radius: 10px;
     line-height: 1.7;
     outline: none;
+}
+
+#daftar-surat .daftar-header .searchInput:focus {
+    outline: 2px solid var(--background);
+    /* transition: outline 1s ease;  */
 }
 
 

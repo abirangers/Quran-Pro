@@ -6,7 +6,7 @@
 .container-surat {
     padding: 40px;
     color: #212529;
-    width: 76vw;
+    width: 88vw;
     max-width: 1200px;
     margin: 0 auto;
     background-color: #fff;
@@ -36,16 +36,21 @@
 }
 
 .container-surat .content-surat .arabic {
-    font-size: 25px;
-    font-weight: var(--font-400);
-    text-align: end;
-    margin: 10px 0;
+    font-size: 3rem;
+    text-align: right;
+    /* margin: 10px 0; */
+    padding-top: 20px;
+    padding-bottom: 10px;
     font-family: var(--arab-font);
-    line-height: 1.6;
+    line-height: 2.4;
+    font-weight: normal;
+    direction: rtl;
 }
 
 .container-surat .content-surat .teks {
-    font-size: 15px;
+    font-size: 1.6rem;
+    font-weight: 400;
     margin-bottom: 18px;
     line-height: 1.6;
+    /* font-family: var(--poppins); */
 }
