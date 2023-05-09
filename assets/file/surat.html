@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Viga&display=swap" rel="stylesheet">
+    <script type="module" src="../js/index.js"></script>
     <style>
         body {
             background: url(../img/bukanangka.jpg);
@@ -15,8 +15,8 @@
         }
     </style>
 </head>
-<body>
-
+<body id="body">
+    <a href="#body" id="arrow"><i class="fa-solid fa-arrow-up" id="arrowTop"></i></a>
     <div id="home">
         <div class="navbar">
             <div class="kiri"><a href="../../index.html">Qur'an Pro</a></div>
@@ -47,8 +47,12 @@
             Copyright 2023 Qur'an Pro | Devacto Rekayasa Perangkat Lunak
         </footer>
          <!-- <script src="../js/script.js"></script> -->
-    <script src="../js/surat.js"></script>
-    <script src="../js/index.js"></script>
+    <script type="module">
+        import {isiSurat, arrowBtn, navButton} from "../js/index.js";
+        arrowBtn();
+        isiSurat();
+        navButton();
+    </script>
     <script src="https://kit.fontawesome.com/7ff3bc0990.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -8,25 +8,25 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Viga&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script type="module" src="assets/js/index.js"></script>
+
 </head>
-<body id="body">
+<body id="body" style="padding-top: 77px;">
     <a href="#body" id="arrow"><i class="fa-solid fa-arrow-up" id="arrowTop"></i></a>
 
+    <div class="navbar">
+        <div class="kiri"><a href="index.html">Qur'an Pro</a></div>
+        <button><i class="fa-solid fa-bars fa-2xl" aria-label="bars"></i></button>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="kuning">Home</a></li>
+                <li><a href="assets/file/quran.html">Qur'an</a></li>
+                <li><a href="assets/file/about.html">About</a></li>
+                <li><a href="assets/file/contact.html">Contact</a></li>      
+            </ul>
+        </nav>
+    </div>
     <div id="home">
-            <div class="navbar">
-                <div class="kiri"><a href="index.html">Qur'an Pro</a></div>
-                <button><i class="fa-solid fa-bars fa-2xl"></i></button>
-                <nav>
-                    <ul>
-                        <li><a href="index.html" class="kuning">Home</a></li>
-                        <li><a href="assets/file/quran.html">Qur'an</a></li>
-                        <li><a href="assets/file/about.html">About</a></li>
-                        <li><a href="assets/file/contact.html">Contact</a></li>      
-                    </ul>
-                </nav>
-            </div>
             
             
             <div class="container-home">
@@ -38,7 +38,7 @@
                         
                     </div>
                     <div class="content-kanan">
-                        <img src="assets/img/vector-al-quran-vector-svg-ai-removebg-preview.png" alt="AL-quran" width="450" height="371">
+                        <img src="assets/img/vector-al-quran-vector-svg-ai-removebg-preview.png" alt="AL-quran" width="450" height="371" class="content-image">
                     </div>
                     
                 </div>
@@ -48,7 +48,7 @@
     <!-- <h1 class="loading-text">0%</h1> -->
 
     <div id="digital">
-        <h2 align="center">Al-Qur'an Digital Berbasis Website</h2>
+        <h2 align="center" class="digital-title">Al-Qur'an Digital Berbasis Website</h2>
         <div class="container-digital">
             <div class="digital-kiri">
                 <h2>Ustadz Abi Hidayat</h2>
@@ -65,8 +65,10 @@
     
 
 
-    <script src="assets/js/index.js"></script>
-    <script src="assets/js/loading.js"></script>
+    <script type="module">
+        import {navButton} from "./assets/js/index.js";
+        navButton();
+    </script>
     <script src="https://kit.fontawesome.com/7ff3bc0990.js" crossorigin="anonymous"></script>
 </body>
 </html>
