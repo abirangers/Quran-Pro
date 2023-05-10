@@ -130,7 +130,6 @@ body {
 .container-home {
     width: 100%;
     height: 55rem; 
-    /* min-height: 100%; */
     background-color: var(--background);
 }
 
@@ -294,7 +293,6 @@ body {
 
 #daftar-surat .daftar-header .searchInput:focus {
     outline: 2px solid var(--background);
-    /* transition: outline 1s ease;  */
 }
 
 #daftar-surat .daftar-body {
@@ -303,7 +301,6 @@ body {
     grid-template-columns: repeat(2, 25vw);
     justify-content: center;
     align-items: center;
-    /* margin: 0 2.9vw; */
     gap: 15px;
 }
 
@@ -381,7 +378,6 @@ body {
     line-height: 1.5;
 }
 /*========================== ISI-SURAT ==========================*/
-/* surat */
 #surat  {
     margin-top: 150px;
 }
@@ -421,7 +417,6 @@ body {
 .container-surat .content-surat .arabic {
     font-size: 3rem;
     text-align: right;
-    /* margin: 10px 0; */
     padding-top: 20px;
     padding-bottom: 10px;
     font-family: var(--arab-font);
@@ -435,7 +430,6 @@ body {
     font-weight: 400;
     margin-bottom: 18px;
     line-height: 1.6;
-    /* font-family: var(--poppins); */
 }
 /*======================= ABOUT =======================*/
 /* about */
@@ -481,7 +475,6 @@ body {
     padding-top: 16px;
 }
 /*======================= CONTACT =======================*/
-/* contact */
 #contact {
     padding: 0px 0 60px;
 }
@@ -538,7 +531,6 @@ body {
 
 
 #contact .container-contact form .body input, .body textarea {
-    /* width: 10%; */
     display: block;
     width: 80%;
     padding: 8px 10px;
@@ -584,11 +576,9 @@ body {
     width: 70vw;
     margin: auto;
     display: flex;
-    /* flex-direction: column; */
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    /* margin: 24px 0; */
 }
 
 .social .social-content a {
@@ -608,7 +598,6 @@ footer {
 }
 
 #arrow {
-    /* height: 90vh;  */
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
@@ -636,12 +625,8 @@ footer {
     
 }
 
-#arrow.scrolled {
-    /* justify-content: flex-end; */
-    /* position: fixed; */
+#arrow.scrolled {   
     bottom: 60px;
-    /* opacity: 1; */
-    /* z-index: 999; */
     transition: all 1s;
 }
 
@@ -655,7 +640,6 @@ footer {
         max-width: 1140px;
         margin: 26px auto;
         padding: 0 15px;
-        /* gap: 40px; */
     }
     
 
@@ -665,14 +649,17 @@ footer {
         grid-template-columns: repeat(3, 1fr);
         justify-content: center;
         align-items: center;
-        /* margin: 0 0; */
         gap: 15px;
-        /* padding: 0 2vw; */
     }
 }
 
 @media only screen and (max-width: 992px) {
 
+    .container-home {
+        width: 100%;
+        height: 65rem; 
+        background-color: var(--background);
+    }
 
     .navbar nav {
         position: absolute;
@@ -740,7 +727,6 @@ footer {
     #digital h2 {
         font-size: 2.57rem;
         font-weight: 500;
-        /* padding: 0 10px; */
     }
 
     #digital .digital-title {
@@ -816,7 +802,6 @@ footer {
         grid-template-columns: repeat(2, 111px);
         place-items: center;
         flex-wrap: wrap;
-        /* margin: 24px 0; */
     }
     
     .social .social-content a {
@@ -847,7 +832,6 @@ footer {
     }
 
     #digital .container-digital .digital-kanan img {
-        /* width: 480px; */
         object-fit: cover;
     }
 
