@@ -296,19 +296,13 @@ body {
     /* transition: outline 1s ease;  */
 }
 
-
-
-#daftar-surat .container-daftar-surat {
-    max-width: 1140px;
-    margin: 26px auto;
-}
-
 #daftar-surat .daftar-body {
     margin-top: 24px;
     display: grid;
     grid-template-columns: repeat(2, 25vw);
+    justify-content: center;
     align-items: center;
-    margin: 0 2.9vw;
+    /* margin: 0 2.9vw; */
     gap: 15px;
 }
 
@@ -324,7 +318,8 @@ body {
     cursor: pointer;
     border: 2px solid #ffcc70;
     background-color: #2E2E2E;
-    color: #fff ;
+    color: #fff;
+    position: relative;
 }
 
 #daftar-surat .daftar-body a {
@@ -609,16 +604,16 @@ footer {
 }
 
 #arrow {
-    height: 100vh; 
+    /* height: 90vh;  */
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
     text-decoration: none;
     position: fixed;
-    top: -900px;
+    bottom: 600px;
     right: 60px;
     transition: all 1s;
-    
+    z-index: 999;
 }
 
 #arrowTop {
@@ -634,11 +629,15 @@ footer {
     border-radius: 50%;
     transform: rotate(180deg);
     transition: transform 1s;
+    
 }
 
 #arrow.scrolled {
-    justify-content: flex-end;
-    top: -60px; 
+    /* justify-content: flex-end; */
+    /* position: fixed; */
+    bottom: 60px;
+    /* opacity: 1; */
+    /* z-index: 999; */
     transition: all 1s;
 }
 
@@ -649,9 +648,9 @@ footer {
 @media screen and (max-width: 1400px) {
 
     #daftar-surat .container-daftar-surat {
-        max-width: 1140px;
+        /* max-width: 1140px; */
         margin: 26px auto;
-        padding: 0 3vw;
+        /* padding: 0 3vw; */
         /* gap: 40px; */
     }
     
@@ -660,8 +659,9 @@ footer {
         margin-top: 24px;
         display: grid;
         grid-template-columns: repeat(3, 25vw);
+        justify-content: center;
         align-items: center;
-        margin: 0;
+        /* margin: 0 0; */
         gap: 15px;
         /* padding: 0 2vw; */
     }
@@ -757,14 +757,12 @@ footer {
         grid-template-columns: repeat(2, 45vw);
         justify-content: center;
         align-items: center;
-        margin: 0 5vw;
         gap: 15px;
     }
 
 }
 
 @media screen and (max-width: 768px) {
-
     
     #contact .container-contact {
         padding: 60px 0;
@@ -823,7 +821,8 @@ footer {
     #daftar-surat .daftar-body {
         margin-top: 24px;
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(1, 90vw);
+        justify-content: center;
         align-items: center;
         gap: 15px;
     }
