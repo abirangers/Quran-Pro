@@ -256,10 +256,17 @@ body {
     padding-bottom: 18px;
 }
 
-#daftar-surat .daftar-header img {
-    width: 400px;
+#daftar-surat .daftar-header .daftar-image {
+    max-width: 400px;
     height: 150px;
-    margin-bottom: 10px;
+    margin: 0 15px 10px;
+    /* margin-bottom: 10px; */
+
+}
+
+#daftar-surat .daftar-header .daftar-image img {
+    width: 100%;
+    height: 100%;
 }
 
 #daftar-surat .daftar-header {
@@ -385,7 +392,7 @@ body {
 .container-surat {
     padding: 40px;
     color: #212529;
-    width: 88vw;
+    width: 90vw;
     max-width: 1200px;
     margin: 0 auto;
     background-color: #fff;
@@ -452,7 +459,7 @@ body {
     width: 90vw;
     margin: 0 auto;
     background-color: #fff;
-    padding: 40px;
+    padding: 40px 24px;
 }
 
 #about .container-about h2 {
@@ -569,7 +576,8 @@ body {
     font-weight: var(--font-400);
     line-height: 1.2;
     text-align: center;
-    margin-bottom: 60px;
+    margin: 0 10px 60px;
+    /* margin-bottom: 60px; */
 }
 
 .social .social-content {
@@ -632,6 +640,14 @@ footer {
 
 #arrow.scrolled #arrowTop {
     transform: rotate(0);
+}
+
+@media screen and (min-width: 1400px) {
+    .container-home {
+        width: 100%;
+        height: 70rem; 
+        background-color: var(--background);
+    }
 }
 
 @media screen and (max-width: 1400px) {

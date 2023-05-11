@@ -25,7 +25,7 @@ export function daftarSurat() {
                 <div class="daftar-kiri">
                     <span><b>${surat.nomor}</b></span>
                     <div class="bawah">
-                        <a href="#" class="datang">${surat.nama_latin}</a>
+                    <a class="datang">${surat.nama_latin}</a>
                         <p>(${surat.arti})</p>
                     </div>
                 </div>
