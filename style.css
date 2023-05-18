@@ -853,15 +853,6 @@ footer {
         padding: 0 15px;
     }
     
-
-    #daftar-surat .daftar-body {
-        margin-top: 24px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-    }
 }
 
 @media only screen and (max-width: 992px) {
