@@ -408,6 +408,7 @@ body {
     margin-right: 15px;
     line-height: 1.5;
 }
+
 /*========================== ISI-SURAT ==========================*/
 #surat  {
     margin-top: 150px;
@@ -425,12 +426,14 @@ body {
 .container-surat a {
     display: inline-block;
     text-decoration: none;
-    color: #000;
-    background-color: #FFD800;
+    color: var(--font-white);
+    background-color: var(--font-black);
     font-size: var(--font-xs);
     font-weight: var(--font-400);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: .8px;
     padding: 8px 12px;
-    margin-bottom: 13px;
+    margin-bottom: 15px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -465,11 +468,132 @@ body {
 }
 
 .container-surat .content-surat .teks {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-weight: 400;
+    color: var(--font-black);
+    font-family: 'Poppins', sans-serif;
     margin-bottom: 18px;
     line-height: 1.6;
 }
+
+.container-surat .content-surat .translate {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--font-black);
+    opacity: .8;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+.number-surah {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #eee;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+}
+
+.number-surah .number {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    font-size: 1.6rem;
+    text-align: center;
+    width: 2.7rem;
+    height: 2.7rem;
+    line-height: 2.7rem;
+    background-color: var(--font-black);
+    color: var(--font-white);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.number-surah .share {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.number-surah .share svg {
+    color: var(--font-black);
+    cursor: pointer;
+}
+
+.header-surah {
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to bottom right, rgb(33,37,41) 20%, rgb(0, 0, 0));
+    color: var(--font-white);
+    padding: 1.8rem;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    
+}
+
+.header-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content h3 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+.header-content p {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.header-content .garis {
+    height: .5px;
+    background-color: #dee2e6;
+    width: 50%;
+    margin: 10px 0;
+}
+.header-content .turun {
+    display: block;
+    font-size: 1.9rem;
+    font-weight: 400;
+    
+}
+.header-content h2 {
+    font-size: 2.8rem;
+    font-family: var(--arab-font);
+    font-weight: 200;
+}
+
+.audio-surah, audio {
+    width: 100%;
+}
+
+.audio-surah {
+    margin: 25px 0;
+}
+
+.header-surah .info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
 /*======================= ABOUT =======================*/
 /* about */
 #about {
