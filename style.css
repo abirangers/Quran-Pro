@@ -66,6 +66,9 @@ body {
     right: 0;
     z-index: 9999999;
 }
+.navbar.not-fixed {
+    position: static;
+}
 
 .navbar nav {
     order: 2;
@@ -318,10 +321,18 @@ body {
     outline: 2px solid var(--background);
 }
 
+#daftar-surat .container-daftar-surat {
+    max-width: 130rem;
+    width: 100%;
+    margin: 0 auto;
+    /* margin: 26px auto; */
+    padding: 0 25px;
+}
+
 #daftar-surat .daftar-body {
     margin-top: 24px;
     display: grid;
-    grid-template-columns: repeat(3, 25vw);
+    grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     align-items: center;
     gap: 15px;
@@ -431,6 +442,7 @@ body {
     font-size: var(--font-xs);
     font-weight: var(--font-400);
     font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
     letter-spacing: .8px;
     padding: 8px 12px;
     margin-bottom: 15px;
@@ -499,9 +511,6 @@ body {
 }
 
 .number-surah .number {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     font-size: 1.6rem;
     text-align: center;
     width: 2.7rem;
@@ -554,11 +563,11 @@ body {
 }
 
 .header-content h3 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     font-weight: 600;
 }
 .header-content p {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 400;
 }
 .header-content .garis {
@@ -569,12 +578,13 @@ body {
 }
 .header-content .turun {
     display: block;
-    font-size: 1.9rem;
+    font-size: 1.6rem;
     font-weight: 400;
+    text-transform: uppercase;
     
 }
 .header-content h2 {
-    font-size: 2.8rem;
+    font-size: 3rem;
     font-family: var(--arab-font);
     font-weight: 200;
 }
@@ -592,6 +602,58 @@ body {
     top: 10px;
     right: 10px;
     cursor: pointer;
+}
+
+
+/* deskripsi surat */
+.desk-surah {
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    padding: 1.5rem;
+    animation: detailAnimate 0.27s ease-in-out;
+    -webkit-animation: detailAnimate 0.27s ease-in-out;
+    overflow-y: scroll;
+}
+.desk-surah.flex {
+    display: flex;
+    z-index: 999;
+}
+
+.content-desk-surah {
+    max-width: 57.6rem;
+    width: 100%;
+    max-height: 38.4rem;
+    background-color: #fff;
+    padding: 2.4rem;
+    border-radius: 1.6rem;
+    -webkit-border-radius: 1.6rem;
+    -moz-border-radius: 1.6rem;
+    -ms-border-radius: 1.6rem;
+    -o-border-radius: 1.6rem;
+}
+
+.content-desk-surah > h3 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #111827;
+    margin-bottom: 1.6rem;
+}
+.content-desk-surah > p, i {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.content-desk-surah > p > i.desk-italic {
+    font-style: italic;
+    font-weight: 400;
+    /* display: inline-block; */
 }
 
 /*======================= ABOUT =======================*/
@@ -837,6 +899,15 @@ footer {
     -o-transform: rotate(0);
 }
 
+@keyframes detailAnimate {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
 @media screen and (min-width: 1400px) {
     .container-home {
         width: 100%;
@@ -846,12 +917,6 @@ footer {
 }
 
 @media screen and (max-width: 1400px) {
-
-    #daftar-surat .container-daftar-surat {
-        max-width: 1140px;
-        margin: 26px auto;
-        padding: 0 15px;
-    }
     
 }
 
@@ -1019,6 +1084,10 @@ footer {
 
 @media screen and (max-width: 600px) {
 
+    #daftar-surat .container-daftar-surat {
+        padding: 0 20px;
+    }
+
     #daftar-surat .daftar-body {
         margin-top: 24px;
         display: grid;
@@ -1058,6 +1127,9 @@ footer {
         font-size: 2.57rem;
     }
 }
+/* @media screen and (max-width: 500px) {
+    
+} */
 
 @media screen and (max-width: 400px) {
 
@@ -1079,6 +1151,11 @@ footer {
     
 }
 
+@media screen and (max-height: 413px) {
+    .desk-surah {
+        height: max-content;
+    }
+}
 
 
 

@@ -81,11 +81,28 @@ export function isiSurat() {
 
             // audio surat 
             const audSurat = document.querySelector('.audio-surah');
-            const audioApa = `
-        <audio controls>
-            <source src="${response.audio}">
-        </audio>`
-        audSurat.innerHTML = audioApa;
+            const audioApa = audioSurah(response);
+            audSurat.innerHTML = audioApa;
+
+            // deskripsi surat
+            const deskSurah = document.querySelector('.desk-surah');
+            const deskApa = deskOfSurah(response);
+            deskSurah.innerHTML = deskApa;
+
+            // munculkan deskripsi surat
+            const info = document.querySelector('.info');
+            const navbarHeader = document.querySelector('.navbar');
+            info.addEventListener('click', function() {
+                deskSurah.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+                navbarHeader.classList.add('not-fixed');
+            });
+            window.addEventListener('click', function(e) {
+                if(e.target === deskSurah) {
+                    deskSurah.classList.remove('flex');
+                    document.body.style.overflow = 'visible';
+                }
+            });
     
             // isi surat
             const surat = response.ayat;
@@ -135,8 +152,18 @@ function headerSurah(response) {
 </div>`
 }
 
-function audioSurah(s) {
-    return ``
+function deskOfSurah(response) {
+    return `
+    <div class="content-desk-surah">
+        <h3>Deskripsi Surah</h3>
+        <p>${response.deskripsi}</p>
+    </div>`
+}
+function audioSurah(response) {
+    return `
+<audio controls>
+    <source src="${response.audio}">
+</audio>`
 }
 
 function surah(s) {
