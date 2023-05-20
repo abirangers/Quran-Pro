@@ -67,7 +67,7 @@ body {
     z-index: 9999999;
 }
 .navbar.not-fixed {
-    position: static;
+    z-index: 1;
 }
 
 .navbar nav {
@@ -606,7 +606,7 @@ body {
 
 
 /* deskripsi surat */
-.desk-surah {
+.desk-surah, .tafsir-surah {
     font-family: 'Poppins', sans-serif;
     width: 100%;
     height: 100%;
@@ -619,19 +619,19 @@ body {
     padding: 1.5rem;
     animation: detailAnimate 0.27s ease-in-out;
     -webkit-animation: detailAnimate 0.27s ease-in-out;
-    overflow-y: scroll;
 }
-.desk-surah.flex {
+.desk-surah.flex, .tafsir-surah.taft {
     display: flex;
     z-index: 999;
 }
 
-.content-desk-surah {
+.content-desk-surah, .content-tafsir-surah {
     max-width: 57.6rem;
     width: 100%;
     max-height: 38.4rem;
     background-color: #fff;
     padding: 2.4rem;
+    overflow-y: auto;
     border-radius: 1.6rem;
     -webkit-border-radius: 1.6rem;
     -moz-border-radius: 1.6rem;
@@ -639,21 +639,35 @@ body {
     -o-border-radius: 1.6rem;
 }
 
-.content-desk-surah > h3 {
+.content-desk-surah h3, .content-tafsir-surah h3 {
     font-size: 1.8rem;
     font-weight: 500;
     color: #111827;
+    text-transform: capitalize;
     margin-bottom: 1.6rem;
 }
 .content-desk-surah > p, i {
     font-size: 1.6rem;
     font-weight: 400;
+    line-height: 24px;
 }
 
 .content-desk-surah > p > i.desk-italic {
     font-style: italic;
     font-weight: 400;
     /* display: inline-block; */
+}
+
+.body-tafsir {
+    margin-top: 1.6rem;
+}
+
+.body-tafsir p {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 24px;
+    white-space: pre-line;
+    text-align: left;
 }
 
 /*======================= ABOUT =======================*/
@@ -1152,7 +1166,7 @@ footer {
 }
 
 @media screen and (max-height: 413px) {
-    .desk-surah {
+    .desk-surah, .tafsir-surah {
         height: max-content;
     }
 }
