@@ -1,26 +1,26 @@
 export function navButton() {
-    const btn = document.querySelector('button');
-    btn.addEventListener("click", function () {
-        const navigasiBar = document.querySelector("nav");
-        navigasiBar.classList.toggle("aktif");
-    });
+  const btn = document.querySelector("button");
+  btn.addEventListener("click", function () {
+    const navigasiBar = document.querySelector("nav");
+    navigasiBar.classList.toggle("aktif");
+  });
 }
 
 export function arrowBtn() {
-    var arrow = document.querySelector("#arrow");
-    window.addEventListener("scroll", function () {
-        arrow.classList.toggle("scrolled", window.scrollY > 500);
-    });
+  var arrow = document.querySelector("#arrow");
+  window.addEventListener("scroll", function () {
+    arrow.classList.toggle("scrolled", window.scrollY > 500);
+  });
 }
 
-const dBody = document.querySelector('.daftar-body');
+const dBody = document.querySelector(".daftar-body");
 export function daftarSurat() {
-    fetch('https://equran.id/api/surat')
-    .then(response => response.json())
-    .then(response => {
-        let cardSurat = '';
-            response.forEach(surat => {
-                cardSurat += `
+  fetch("https://equran.id/api/surat")
+    .then((response) => response.json())
+    .then((response) => {
+      let cardSurat = "";
+      response.forEach((surat) => {
+        cardSurat += `
             <div class="daftar-content" onclick="location.href='surat.html?nomorsurat=${surat.nomor}' " >
                 <div class="daftar-kiri">
                     <span><b>${surat.nomor}</b></span>
@@ -32,155 +32,166 @@ export function daftarSurat() {
                 <div class="daftar-kanan">
                     <p>${surat.nama}<br>${surat.jumlah_ayat} Ayat</p>
                 </div>
-            </div>`
-            });
-            dBody.innerHTML = cardSurat;
-    
-            const searchInput = document.querySelector('.searchInput');
-            console.log(searchInput);
-            const rows = document.querySelectorAll(".daftar-content");
+            </div>`;
+      });
+      dBody.innerHTML = cardSurat;
 
-            
-            searchInput.addEventListener("keyup", function (event) {
-                const q = event.target.value.toLowerCase();
-                rows.forEach(row => {
-                    row.querySelector(".datang").textContent.toLowerCase().startsWith(q)
-                    ? (row.style.display = "")
-                    : (row.style.display = "none");
-                });
-            });
+      const searchInput = document.querySelector(".searchInput");
+      console.log(searchInput);
+      const rows = document.querySelectorAll(".daftar-content");
+
+      searchInput.addEventListener("keyup", function (event) {
+        const q = event.target.value.toLowerCase();
+        rows.forEach((row) => {
+          row.querySelector(".datang").textContent.toLowerCase().startsWith(q)
+            ? (row.style.display = "")
+            : (row.style.display = "none");
         });
-        return;
-    }
+      });
+    });
+  return;
+}
 
 export function isiSurat() {
-    function getURL(e) {
-        const pageURL = window.location.search.substring(1);
-        const urlVariable = pageURL.split('&');
-    
-        for(let i = 0; i < urlVariable.length; i++) {
-            const parameterName = urlVariable[i].split('=');
-            if(parameterName[0] == e) {
-                return parameterName[1];
-            }
-        }
-    }
-    
-    const nomorSurat = getURL('nomorsurat');
-    
-    
-    function getSurat() {
-        fetch(`https://equran.id/api/surat/${nomorSurat}`)
-          .then((response) => response.json())
-          .then(response => {
-    
-            // judul surat
-            const contSurat = document.querySelector('.header-surah');
-            const suratApa = headerSurah(response);
-            contSurat.innerHTML = suratApa;
+  function getURL(e) {
+    const pageURL = window.location.search.substring(1);
+    const urlVariable = pageURL.split("&");
 
-            // audio surat 
-            const audSurat = document.querySelector('.audio-surah');
-            const audioApa = audioSurah(response);
-            audSurat.innerHTML = audioApa;
-
-            // deskripsi surat
-            const deskSurah = document.querySelector('.desk-surah');
-            const deskApa = deskOfSurah(response);
-            deskSurah.innerHTML = deskApa;
-
-            // munculkan deskripsi surat
-            const info = document.querySelector('.info');
-            const navbarHeader = document.querySelector('.navbar');
-            info.addEventListener('click', function() {
-                deskSurah.classList.add('flex');
-                document.body.style.overflow = 'hidden';
-                navbarHeader.classList.add('not-fixed');
-            });
-            window.addEventListener('click', function(e) {
-                if(e.target === deskSurah) {
-                    deskSurah.classList.remove('flex');
-                    document.body.style.overflow = 'visible';
-                    navbarHeader.classList.remove('not-fixed');
-                }
-            });
-
-            // isi surat
-            const surat = response.ayat;
-            let isiSurat = '';
-            const containerSurat = document.querySelector('.container-surat .content-surat');
-            surat.forEach(s => {
-                isiSurat += surah(s);
-            });
-            containerSurat.innerHTML = isiSurat;
-
-            
-
-            let mediaShare = document.querySelectorAll('.media-share');
-            mediaShare.forEach(m => {
-                m.addEventListener('click', function() {
-                    if (navigator.share) {
-                      navigator.share({
-                        title: `${response.nama_latin}`,
-                        text: `${response.arti}`,
-                        url: ``
-                      })
-                        .then(function() {
-                          console.log('Berbagi berhasil.');
-                        })
-                        .catch(function(error) {
-                          console.log('Gagal berbagi:', error);
-                        });
-                    } else {
-                      console.log('Web Share API tidak didukung di browser ini.');
-                    }
-                  });
-            });
-        });
+    for (let i = 0; i < urlVariable.length; i++) {
+      const parameterName = urlVariable[i].split("=");
+      if (parameterName[0] == e) {
+        return parameterName[1];
       }
-      
-    getSurat();
-
-    function getTafsir() {
-        fetch(`https://equran.id/api/v2/tafsir/${nomorSurat}`)
-            .then(response => response.json())
-            .then(response => {
-                const ayatTafsir = document.querySelectorAll('.tafsiran');
-                ayatTafsir.forEach(a => {
-                    a.addEventListener('click', function() {
-                        // tafsir surat
-                        const navbarHeader = document.querySelector('.navbar');
-                        navbarHeader.classList.add('not-fixed');
-                        const tafsirSurah = document.querySelector('.tafsir-surah');
-                        tafsirSurah.classList.add('taft');
-                        document.body.style.overflow = 'hidden';  
-                        const dataVerse = a.getAttribute('data-verse');
-                        let dataTaf = response.data.tafsir;
-                        let data = response.data;
-                        let isiTafsir = '';
-                        dataTaf.forEach((taf, index) => {
-                            if(dataVerse == taf.ayat) {
-                                console.log(data);
-                                isiTafsir += tafsirOfSurah(taf, data);
-                            }
-                        });
-                        tafsirSurah.innerHTML = isiTafsir;
-                        window.addEventListener('click', function(e) {
-                            if(e.target === tafsirSurah) {
-                                tafsirSurah.classList.remove('taft');
-                                document.body.style.overflow = 'visible';
-                                navbarHeader.classList.remove('not-fixed');
-                            }
-                        });
-                    });
-                });
-            });
     }
-    getTafsir();
+  }
+
+  const nomorSurat = getURL("nomorsurat");
+
+  function getSurat() {
+    fetch(`https://equran.id/api/surat/${nomorSurat}`)
+      .then((response) => response.json())
+      .then((response) => {
+        componentSurat(response);
+        // isi surat
+        const surat = response.ayat;
+        let isiSurat = "";
+        const containerSurat = document.querySelector(
+          ".container-surat .content-surat"
+        );
+        surat.forEach((s) => {
+          isiSurat += surah(s);
+        });
+        containerSurat.innerHTML = isiSurat;
+
+        let mediaShare = document.querySelectorAll(".media-share");
+        shareButton(mediaShare, response);
+      });
+  }
+  getSurat();
+  function componentSurat(response) {
+    // judul surat
+    const contSurat = document.querySelector(".header-surah");
+    const suratApa = headerSurah(response);
+    contSurat.innerHTML = suratApa;
+
+    // audio surat
+    const audSurat = document.querySelector(".audio-surah");
+    const audioApa = audioSurah(response);
+    audSurat.innerHTML = audioApa;
+
+    // deskripsi surat
+    const deskSurah = document.querySelector(".desk-surah");
+    const deskApa = deskOfSurah(response);
+    deskSurah.innerHTML = deskApa;
+
+    // munculkan deskripsi surat
+    const info = document.querySelector(".info");
+    const navbarHeader = document.querySelector(".navbar");
+    info.addEventListener("click", function () {
+      deskSurah.classList.add("flex");
+      document.body.style.overflow = "hidden";
+      navbarHeader.classList.add("not-fixed");
+    });
+    window.addEventListener("click", function (e) {
+      if (e.target === deskSurah) {
+        deskSurah.classList.remove("flex");
+        document.body.style.overflow = "visible";
+        navbarHeader.classList.remove("not-fixed");
+      }
+    });
+  }
+  function shareButton(mediaShare, response) {
+    mediaShare.forEach((m) => {
+      m.addEventListener("click", function () {
+        if (navigator.share) {
+          navigator
+            .share({
+              title: `${response.nama_latin}`,
+              text: `${response.arti}`,
+              url: `https://facebook.com/`,
+            })
+            .then(function () {
+              console.log("Berbagi berhasil.");
+            })
+            .catch(function (error) {
+              console.log("Gagal berbagi:", error);
+            });
+        } else {
+          console.log("Web Share API tidak didukung di browser ini.");
+        }
+      });
+    });
+  }
+
+  document.addEventListener("click", async function (e) {
+    try {
+      if (e.target.classList.contains("tafsiran")) {
+        const navbarHeader = document.querySelector(".navbar");
+        const tafsirSurah = document.querySelector(".tafsir-surah");
+        const dataVerse = e.target.getAttribute("data-verse");
+        const tafsirDetail = await getTafsirDetail();
+        updateUIDetail(tafsirDetail, dataVerse, tafsirSurah, navbarHeader);
+        navbarHeader.classList.add("not-fixed");
+        tafsirSurah.classList.add("taft");
+        document.body.style.overflow = "hidden";
+      }
+    } catch (error) {
+      console.log(`ada error bro. errornya disini => ${error}`);
+    }
+  });
+
+  function getTafsirDetail() {
+    return fetch(`https://equran.id/api/v2/tafsir/${nomorSurat}`)
+      .then((response) => response.json())
+      .then((response) => response);
+  }
+
+  function updateUIDetail(response, dataVerse, tafsirSurah, navbarHeader) {
+    let dataTaf = response.data.tafsir;
+    let data = response.data;
+    let isiTafsir = "";
+    dataTaf.forEach((taf, index) => {
+      if (dataVerse == taf.ayat) {
+        isiTafsir += tafsirOfSurah(taf, data);
+      }
+    });
+    tafsirSurah.innerHTML = isiTafsir;
+    removeTafsir(tafsirSurah, navbarHeader);
+  }
+
+  function removeTafsir(tafsirSurah, navbarHeader) {
+    window.addEventListener("click", function (e) {
+      if (e.target === tafsirSurah) {
+        tafsirSurah.classList.remove("taft");
+        document.body.style.overflow = "visible";
+        navbarHeader.classList.remove("not-fixed");
+      }
+    });
+  }
 }
 
 function headerSurah(response) {
-    return `
+  return `
     <svg class="info" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" class="opacity-70 hover:opacity-100" height="23" width="23" xmlns="http://www.w3.org/2000/svg"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 336a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"></path></svg>    
 <div class="header-content">
     <h3>${response.nama_latin}</h3>
@@ -188,25 +199,25 @@ function headerSurah(response) {
     <div class="garis"></div>
     <div class="turun">${response.tempat_turun} • ${response.jumlah_ayat} AYAT</div>
     <h2 class="header-arabic">ِبِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيْم</h2>
-</div>`
+</div>`;
 }
 
 function deskOfSurah(response) {
-    return `
+  return `
     <div class="content-desk-surah">
         <h3>Deskripsi Surah</h3>
         <p>${response.deskripsi}</p>
-    </div>`
+    </div>`;
 }
 function audioSurah(response) {
-    return `
+  return `
 <audio controls>
     <source src="${response.audio}">
-</audio>`
+</audio>`;
 }
 
 function surah(s) {
-    return `
+  return `
     <div class="number-surah" data-verse="${s.nomor}">
         <div class="number">${s.nomor}</div>
         <div class="share">
@@ -216,16 +227,15 @@ function surah(s) {
     </div>
     <p class="arabic">${s.ar}</p>
     <p class="teks">${s.tr}</p>
-    <p class="translate">${s.idn}</p>`
+    <p class="translate">${s.idn}</p>`;
 }
 
 function tafsirOfSurah(taf, data) {
-    return `
+  return `
     <div class="content-tafsir-surah">
             <h3>tafsir ayat ${taf.ayat} surah ${data.namaLatin}</h3>
             <div class="body-tafsir">
                 <p>${taf.teks}</p>
             </div>
-        </div>`
+        </div>`;
 }
-
