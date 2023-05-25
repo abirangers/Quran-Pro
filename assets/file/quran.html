@@ -1,55 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../style.css" />
     <script type="module" src="index.js"></script>
-</head>
-<body id="body" style="padding-top: 77px; background: url(../img/bukanangka.jpg);">
+  </head>
+  <body
+    id="body"
+    style="padding-top: 77px; background: url(../img/bukanangka.jpg)"
+  >
     <!-- backtoTop -->
-    <a href="#body" id="arrow"><i class="fa-solid fa-arrow-up" id="arrowTop"></i></a>
+    <a href="#body" id="arrow"
+      ><i class="fa-solid fa-arrow-up" id="arrowTop"></i
+    ></a>
 
     <div id="home">
-        <div class="navbar">
-            <div class="kiri"><a href="../../index.html">Qur'an Pro</a></div>
-            <button><i class="fa-solid fa-bars fa-2xl"></i></button>
-            <nav>
-                <ul>
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="quran.html" class="kuning">Qur'an</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>      
-                </ul>
-            </nav>
-        </div>
+      <div class="navbar">
+        <div class="kiri"><a href="../../index.html">Qur'an Pro</a></div>
+        <button><i class="fa-solid fa-bars fa-2xl"></i></button>
+        <nav>
+          <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="quran.html" class="kuning">Qur'an</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
     <div id="daftar-surat">
-        <div class="daftar-header">
-            <div class="daftar-image">
-                <img src="../img/alquranull-karim.svg" alt="">
-            </div>
-            <input type="text" placeholder="Cari Surah..." class="searchInput">
-            <h3>Daftar Surah</h3>
+      <div class="daftar-header">
+        <div class="daftar-image">
+          <img src="../img/alquranull-karim.svg" alt="" />
         </div>
-        <!-- <hr> -->
-        <div class="container-daftar-surat">
-            <div class="daftar-body"></div>
-        </div>
+        <input type="text" placeholder="Cari Surah..." class="searchInput" />
+        <h3>Daftar Surah</h3>
+      </div>
+      <!-- <hr> -->
+      <div class="container-daftar-surat">
+        <div class="daftar-body"></div>
+      </div>
     </div>
 
     <footer>
-        Copyright 2023 Qur'an Pro | Devacto Rekayasa Perangkat Lunak
+      Copyright 2023 Qur'an Pro | Devacto Rekayasa Perangkat Lunak
     </footer>
- 
+
     <script type="module">
-        import {daftarSurat, arrowBtn, navButton} from "../js/index.js";
-        arrowBtn();
-        daftarSurat();
-        navButton();
+      import { daftarSurat, arrowBtn, navButton } from "../js/index.js";
+      arrowBtn();
+      daftarSurat();
+      navButton();
     </script>
-    <script src="https://kit.fontawesome.com/7ff3bc0990.js" crossorigin="anonymous"></script>
-</body>
+    <script
+      src="https://kit.fontawesome.com/7ff3bc0990.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

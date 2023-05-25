@@ -1,77 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../style.css" />
     <script type="module" src="../js/index.js"></script>
-</head>
-<body id="body" style="padding-top: 77px; background: url(../img/bukanangka.jpg);">
-
+  </head>
+  <body
+    id="body"
+    style="padding-top: 77px; background: url(../img/bukanangka.jpg)"
+  >
     <div id="home">
-        <div class="navbar">
-            <div class="kiri"><a href="../../index.html">Qur'an Pro</a></div>
-            <button><i class="fa-solid fa-bars fa-2xl"></i></button>
-            <nav>
-                <ul>
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="quran.html">Qur'an</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html" class="kuning">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+      <div class="navbar">
+        <div class="kiri"><a href="../../index.html">Qur'an Pro</a></div>
+        <button><i class="fa-solid fa-bars fa-2xl"></i></button>
+        <nav>
+          <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="quran.html">Qur'an</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="kuning">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
     <div id="contact">
-        <div class="container-contact">
-            <h3>Kirim Pesan Disini 😊😊</h3>
-            <form>
-                
-                <div class="title">Kirim Pesan</div>
-                <div class="body">
-                    <div class="atas">
-                        <label>Nama</label>
-                        <input type="text">
-                    </div>
-                    <div class="atas">
-                        <label>No.Telephone</label>
-                        <input type="number">
-                    </div>
-                    <div class="atas">
-                        <label>Email</label>
-                        <input type="email">
-                    </div>
-                    <div class="atas">
-                        <label>Pesan</label>
-                        <textarea></textarea>
-                    </div>
-                    <button type="submit">Simpan</button>
-                </div>
-            </form>
-        </div>
-
-        <div class="social">
-            <h2>Social Media & Donate</h2>
-            <div class="social-content">
-                <a href="#"><img src="../img/whatsapp.png" alt=""></a>
-                <a href="#"><img src="../img/instagram.png" alt=""></a>
-                <a href="#"><img src="../img/tiktok.png" alt=""></a>
-                <a href="#"><img src="../img/payment.png" alt=""></a>
+      <div class="container-contact">
+        <h3>Kirim Pesan Disini 😊😊</h3>
+        <form name="quran-pro-contact-form">
+          <div class="title">Kirim Pesan</div>
+          <div class="success-form">
+            terima kasih pesan sudah dikirim😊👌
+            <i class="fa-regular fa-xmark close-form-message"></i>
+          </div>
+          <div class="body">
+            <div class="atas">
+              <label for="name">Nama</label>
+              <input type="text" id="name" name="nama" />
             </div>
-        </div>
+            <div class="atas">
+              <label for="number">No.Telephone</label>
+              <input type="number" id="number" name="telepon" />
+            </div>
+            <div class="atas">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" />
+            </div>
+            <div class="atas">
+              <label for="pesan">Pesan</label>
+              <textarea id="pesan" name="pesan"></textarea>
+            </div>
+            <button type="submit" class="btn-kirim">Simpan</button>
+          </div>
+        </form>
+      </div>
 
+      <div class="social">
+        <h2>Social Media & Donate</h2>
+        <div class="social-content">
+          <a href="#"><img src="../img/whatsapp.png" alt="" /></a>
+          <a href="#"><img src="../img/instagram.png" alt="" /></a>
+          <a href="#"><img src="../img/tiktok.png" alt="" /></a>
+          <a href="#"><img src="../img/payment.png" alt="" /></a>
+        </div>
+      </div>
     </div>
-    
-    <footer style="padding-top: 0;">
-        Copyright 2023 Qur'an Pro | Devacto Rekayasa Perangkat Lunak
+
+    <footer style="padding-top: 0">
+      Copyright 2023 Qur'an Pro | Devacto Rekayasa Perangkat Lunak
     </footer>
- 
+
     <script type="module">
-        import {navButton} from "../js/index.js";
-        navButton();
+      import { navButton } from "../js/index.js";
+      navButton();
     </script>
-    <script src="https://kit.fontawesome.com/7ff3bc0990.js" crossorigin="anonymous"></script>
-</body>
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbw0yrBnmEVwQAAAVC1xvcvzVt_kRQ43_029YngKZXZ6A1QVQyTnFWADAXuJtAX8ZEbn/exec";
+      const form = document.forms["quran-pro-contact-form"];
+      const btnKirim = document.querySelector(".btn-kirim");
+      const myAlert = document.querySelector(".success-form");
+      const closeAlert = document.querySelector(".close-form-message");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Memeriksa apakah formulir memiliki isian atau tidak
+        if (formHasInput()) {
+          // Munculkan loading
+          btnKirim.classList.add("loading");
+
+          fetch(scriptURL, { method: "POST", body: new FormData(form) })
+            .then((response) => {
+              console.log('success', response);
+              // Hilangkan loading
+              btnKirim.classList.remove("loading");
+              // Tampilkan alert
+              myAlert.classList.add("success");
+              // Hilangkan alert
+              closeAlert.addEventListener("click", () =>
+                myAlert.classList.remove("success")
+              );
+              // Reset formulir
+              form.reset();
+            })
+            .catch((error) => console.error("Error!", error.message));
+        }
+      });
+
+      function formHasInput() {
+        // Memeriksa setiap elemen input dalam formulir
+        for (let i = 0; i < form.elements.length; i++) {
+          const input = form.elements[i];
+          // Jika ada isian yang tidak kosong, mengembalikan true
+          if (input.value.trim() !== "") {
+            return true;
+          }
+        }
+        // Jika tidak ada isian yang tidak kosong, mengembalikan false
+        return false;
+      }
+    </script>
+    <script
+      src="https://kit.fontawesome.com/7ff3bc0990.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
