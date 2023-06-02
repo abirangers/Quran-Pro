@@ -16,28 +16,15 @@ export function arrowBtn() {
 const dBody = document.querySelector(".daftar-body");
 export function daftarSurat() {
   fetch("https://equran.id/api/surat")
-    .then((response) => response.json())
-    .then((response) => {
+  .then((response) => response.json())
+  .then((response) => {
       let cardSurat = "";
       response.forEach((surat) => {
-        cardSurat += `
-            <div class="daftar-content" onclick="location.href='surat.html?nomorsurat=${surat.nomor}' " >
-                <div class="daftar-kiri">
-                    <span><b>${surat.nomor}</b></span>
-                    <div class="bawah">
-                    <a class="datang">${surat.nama_latin}</a>
-                        <p>(${surat.arti})</p>
-                    </div>
-                </div>
-                <div class="daftar-kanan">
-                    <p>${surat.nama}<br>${surat.jumlah_ayat} Ayat</p>
-                </div>
-            </div>`;
+        cardSurat += surahs(surat);
       });
       dBody.innerHTML = cardSurat;
 
       const searchInput = document.querySelector(".searchInput");
-      console.log(searchInput);
       const rows = document.querySelectorAll(".daftar-content");
 
       searchInput.addEventListener("keyup", function (event) {
@@ -68,7 +55,7 @@ export function isiSurat() {
   const nomorSurat = getURL("nomorsurat");
 
   function getSurat() {
-    fetch(`https://equran.id/api/surat/${nomorSurat}#${nomorSurat}`)
+    fetch(`https://equran.id/api/surat/${nomorSurat}`)
       .then((response) => response.json())
       .then((response) => {
         componentSurat(response);
@@ -79,7 +66,7 @@ export function isiSurat() {
           ".container-surat .content-surat"
         );
         surat.forEach((s) => {
-          isiSurat += surah(s);
+          isiSurat += ayat(s);
         });
         containerSurat.innerHTML = isiSurat;
         const numberSurat = document.querySelectorAll('.number-surah');
@@ -132,16 +119,15 @@ export function isiSurat() {
     mediaShare.forEach((m) => {
       m.addEventListener("click", function () {
         if (navigator.share) {
-          const nomorSurat = response.nomor; // Mengambil nomor surat dari response
-          const anchor = m.parentNode.parentNode.getAttribute('id'); // Mengambil nomor ayat dari atribut id parent node mediaShare
-          const currentURL = window.location.href; // Mendapatkan URL halaman saat ini
-          const url = `${currentURL}?nomorsurat=${nomorSurat}#${anchor}`;
-
+          const surat = this.parentElement.parentElement;
+          const idSurat = surat.getAttribute('id');
+          // const attr = surat.href = idSurat;
+          
           navigator
             .share({
               title: `${response.nama_latin}`,
               text: `${response.arti}`,
-              url: url, // Menggunakan URL yang sudah dibentuk
+              url: `#${idSurat}`,
             })
             .then(function () {
               console.log("Berbagi berhasil.");
@@ -155,6 +141,7 @@ export function isiSurat() {
       });
     });
   }
+  
 
   document.addEventListener("click", async function (e) {
     try {
@@ -185,7 +172,7 @@ export function isiSurat() {
     let isiTafsir = "";
     dataTaf.forEach((taf, index) => {
       if (dataVerse == taf.ayat) {
-        isiTafsir += tafsirOfSurah(taf, data);
+        isiTafsir += tafsirOfAyat(taf, data);
       }
     });
     tafsirSurah.innerHTML = isiTafsir;
@@ -201,6 +188,22 @@ export function isiSurat() {
       }
     });
   }
+}
+
+function surahs(surat) {
+  return `
+  <div class="daftar-content" onclick="location.href='surat.html?nomorsurat=${surat.nomor}' " >
+      <div class="daftar-kiri">
+          <span><b>${surat.nomor}</b></span>
+          <div class="bawah">
+          <a class="datang">${surat.nama_latin}</a>
+              <p>(${surat.arti})</p>
+          </div>
+      </div>
+      <div class="daftar-kanan">
+          <p>${surat.nama}<br>${surat.jumlah_ayat} Ayat</p>
+      </div>
+  </div>`;  
 }
 
 function headerSurah(response) {
@@ -229,7 +232,7 @@ function audioSurah(response) {
 </audio>`;
 }
 
-function surah(s) {
+function ayat(s) {
   return `
     <div id="${s.nomor}" class="number-surah" data-verse="${s.nomor}">
         <div class="number">${s.nomor}</div>
@@ -243,7 +246,7 @@ function surah(s) {
     <p class="translate">${s.idn}</p>`;
 }
 
-function tafsirOfSurah(taf, data) {
+function tafsirOfAyat(taf, data) {
   return `
     <div class="content-tafsir-surah">
             <h3>tafsir ayat ${taf.ayat} surah ${data.namaLatin}</h3>
