@@ -69,20 +69,12 @@ export function isiSurat() {
           isiSurat += ayat(s);
         });
         containerSurat.innerHTML = isiSurat;
-        const numberSurat = document.querySelectorAll('.number-surah');
-        idOfSurah(surat, numberSurat);
         
         let mediaShare = document.querySelectorAll(".media-share");
         shareButton(mediaShare, response);
       });
     }
     getSurat();
-    
-    function idOfSurah(surat, numberSurat) {
-      numberSurat.forEach(surat => {
-        const idSurah = surat.getAttribute('id');
-      });
-    }
   function componentSurat(response) {
     // judul surat
     const contSurat = document.querySelector(".header-surah");
@@ -121,13 +113,13 @@ export function isiSurat() {
         if (navigator.share) {
           const surat = this.parentElement.parentElement;
           const idSurat = surat.getAttribute('id');
-          // const attr = surat.href = idSurat;
-          
+          const urlWithoutAnchor = `${window.location.origin}${window.location.pathname}${window.location.search}`;
+          const urlAnchor = window.location.hash = idSurat;
           navigator
             .share({
               title: `${response.nama_latin}`,
               text: `${response.arti}`,
-              url: `#${idSurat}`,
+              url: urlWithoutAnchor + "#" + urlAnchor,
             })
             .then(function () {
               console.log("Berbagi berhasil.");
