@@ -107,7 +107,7 @@ export function isiSurat() {
       }
     });
   }
-  
+
   function shareButton(mediaShare, response) {
     mediaShare.forEach((m) => {
       m.addEventListener("click", function () {
@@ -119,11 +119,10 @@ export function isiSurat() {
             .share({
               title: `${response.nama_latin}`,
               text: `${response.arti}`,
-              url: `#${idSurat}`, // Menggunakan URL yang sudah dibentuk
+              url: `#${idSurat}`,
             })
             .then(function () {
               console.log("Berbagi berhasil.");
-              // Mengarahkan ke elemen dengan ID yang diinginkan
               const targetElement = document.getElementById(idSurat);
               if (targetElement) {
                 targetElement.scrollIntoView();
