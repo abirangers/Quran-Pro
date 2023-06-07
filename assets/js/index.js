@@ -1,46 +1,45 @@
-export function navButton() {
-  const btn = document.querySelector("button");
-  btn.addEventListener("click", function () {
-    const navigasiBar = document.querySelector("nav");
-    navigasiBar.classList.toggle("aktif");
-  });
-}
+// export function navButton() {
+//   const btn = document.querySelector("button");
+//   btn.addEventListener("click", function () {
+//     const navigasiBar = document.querySelector("nav");
+//     navigasiBar.classList.toggle("aktif");
+//   });
+// }
 
-export function arrowBtn() {
-  var arrow = document.querySelector("#arrow");
-  window.addEventListener("scroll", function () {
-    arrow.classList.toggle("scrolled", window.scrollY > 500);
-  });
-}
+// export function arrowBtn() {
+//   var arrow = document.querySelector("#arrow");
+//   window.addEventListener("scroll", function () {
+//     arrow.classList.toggle("scrolled", window.scrollY > 500);
+//   });
+// }
 
-const dBody = document.querySelector(".daftar-body");
-export function daftarSurat() {
-  fetch("https://equran.id/api/surat")
-  .then((response) => response.json())
-  .then((response) => {
-      let cardSurat = "";
-      response.forEach((surat) => {
-        cardSurat += surahs(surat);
-      });
-      dBody.innerHTML = cardSurat;
+// const dBody = document.querySelector(".daftar-body");
+// export function daftarSurat() {
+//   fetch("https://equran.id/api/surat")
+//   .then((response) => response.json())
+//   .then((response) => {
+//       let cardSurat = "";
+//       response.forEach((surat) => {
+//         cardSurat += surahs(surat);
+//       });
+//       dBody.innerHTML = cardSurat;
 
-      const searchInput = document.querySelector(".searchInput");
-      const rows = document.querySelectorAll(".daftar-content");
+//       const searchInput = document.querySelector(".searchInput");
+//       const rows = document.querySelectorAll(".daftar-content");
 
-      searchInput.addEventListener("keyup", function (event) {
-        const q = event.target.value.toLowerCase();
-        rows.forEach((row) => {
-          row.querySelector(".datang").textContent.toLowerCase().startsWith(q)
-            ? (row.style.display = "")
-            : (row.style.display = "none");
-        });
-      });
-    });
-  return;
-}
+//       searchInput.addEventListener("keyup", function (event) {
+//         const q = event.target.value.toLowerCase();
+//         rows.forEach((row) => {
+//           row.querySelector(".datang").textContent.toLowerCase().startsWith(q)
+//             ? (row.style.display = "")
+//             : (row.style.display = "none");
+//         });
+//       });
+//     });
+//   return;
+// }
 
-export function isiSurat() {
-  function getURL(e) {
+export function getURL(e) {
     const pageURL = window.location.search.substring(1);
     const urlVariable = pageURL.split("&");
 
@@ -52,156 +51,131 @@ export function isiSurat() {
     }
   }
 
-  const nomorSurat = getURL("nomorsurat");
+const nomorSurat = getURL("nomorsurat");
 
-  function getSurat() {
-    fetch(`https://equran.id/api/surat/${nomorSurat}`)
-      .then((response) => response.json())
-      .then((response) => {
-        componentSurat(response);
-        // isi surat
-        const surat = response.ayat;
-        let isiSurat = "";
-        const containerSurat = document.querySelector(
-          ".container-surat .content-surat"
-        );
-        surat.forEach((s) => {
-          isiSurat += ayat(s);
-        });
-        containerSurat.innerHTML = isiSurat;
+
+//   function getSurat() {
+//     fetch(`https://equran.id/api/surat/${nomorSurat}`)
+//       .then((response) => response.json())
+//       .then((response) => {
+//         componentSurat(response);
+//         // isi surat
+//         const surat = response.ayat;
+//         let isiSurat = "";
+//         const containerSurat = document.querySelector(
+//           ".container-surat .content-surat"
+//         );
+//         surat.forEach((s) => {
+//           isiSurat += ayat(s);
+//         });
+//         containerSurat.innerHTML = isiSurat;
         
-        let mediaShare = document.querySelectorAll(".media-share");
-        shareButton(mediaShare, response);
-      });
-    }
-    getSurat();
-  function componentSurat(response) {
-    // judul surat
-    const contSurat = document.querySelector(".header-surah");
-    const suratApa = headerSurah(response);
-    contSurat.innerHTML = suratApa;
+//         let mediaShare = document.querySelectorAll(".media-share");
+//         shareButton(mediaShare, response);
+//       });
+//     }
+//     getSurat();
+//   function componentSurat(response) {
+//     // judul surat
+//     const contSurat = document.querySelector(".header-surah");
+//     const suratApa = headerSurah(response);
+//     contSurat.innerHTML = suratApa;
 
-    // audio surat
-    const audSurat = document.querySelector(".audio-surah");
-    const audioApa = audioSurah(response);
-    audSurat.innerHTML = audioApa;
+//     // audio surat
+//     const audSurat = document.querySelector(".audio-surah");
+//     const audioApa = audioSurah(response);
+//     audSurat.innerHTML = audioApa;
 
-    // deskripsi surat
-    const deskSurah = document.querySelector(".desk-surah");
-    const deskApa = deskOfSurah(response);
-    deskSurah.innerHTML = deskApa;
+//     // deskripsi surat
+//     const deskSurah = document.querySelector(".desk-surah");
+//     const deskApa = deskOfSurah(response);
+//     deskSurah.innerHTML = deskApa;
 
-    // munculkan deskripsi surat
-    const info = document.querySelector(".info");
-    const navbarHeader = document.querySelector(".navbar");
-    info.addEventListener("click", function () {
-      deskSurah.classList.add("flex");
-      document.body.style.overflow = "hidden";
-      navbarHeader.classList.add("not-fixed");
-    });
-    window.addEventListener("click", function (e) {
-      if (e.target === deskSurah) {
-        deskSurah.classList.remove("flex");
-        document.body.style.overflow = "visible";
-        navbarHeader.classList.remove("not-fixed");
-      }
-    });
-  }
-  function shareButton(mediaShare, response) {
-    mediaShare.forEach((m) => {
-      m.addEventListener("click", function () {
-        if (navigator.share) {
-          const surat = this.parentElement.parentElement;
-          const idSurat = surat.getAttribute('id');
-  
-          navigator
-            .share({
-              title: `${response.nama_latin}`,
-              text: `${response.arti}`,
-              url: `#${idSurat}`, // Menggunakan URL yang sudah dibentuk
-            })
-            .then(function () {
-              console.log("Berbagi berhasil.");
-              // Mengarahkan ke elemen dengan ID yang diinginkan
-              const targetElement = document.getElementById(idSurat);
-              if (targetElement) {
-                targetElement.scrollIntoView();
-              }
-            })
-            .catch(function (error) {
-              console.log("Gagal berbagi:", error);
-            });
-        } else {
-          console.log("Web Share API tidak didukung di browser ini.");
-        }
-      });
-    });
-  }
+//     // munculkan deskripsi surat
+//     const info = document.querySelector(".info");
+//     const navbarHeader = document.querySelector(".navbar");
+//     info.addEventListener("click", function () {
+//       deskSurah.classList.add("flex");
+//       document.body.style.overflow = "hidden";
+//       navbarHeader.classList.add("not-fixed");
+//     });
+//     window.addEventListener("click", function (e) {
+//       if (e.target === deskSurah) {
+//         deskSurah.classList.remove("flex");
+//         document.body.style.overflow = "visible";
+//         navbarHeader.classList.remove("not-fixed");
+//       }
+//     });
+//   }
+//   document.addEventListener('DOMContentLoaded', function(e) {
+
+//   });
+
   
   
 
-  document.addEventListener("click", async function (e) {
-    try {
-      if (e.target.classList.contains("tafsiran")) {
-        const navbarHeader = document.querySelector(".navbar");
-        const tafsirSurah = document.querySelector(".tafsir-surah");
-        const dataVerse = e.target.getAttribute("data-verse");
-        const tafsirDetail = await getTafsirDetail();
-        updateUIDetail(tafsirDetail, dataVerse, tafsirSurah, navbarHeader);
-        navbarHeader.classList.add("not-fixed");
-        tafsirSurah.classList.add("taft");
-        document.body.style.overflow = "hidden";
-      }
-    } catch (error) {
-      console.log(`ada error bro. errornya disini => ${error}`);
-    }
-  });
+//   document.addEventListener("click", async function (e) {
+//     try {
+//       if (e.target.classList.contains("tafsiran")) {
+//         const navbarHeader = document.querySelector(".navbar");
+//         const tafsirSurah = document.querySelector(".tafsir-surah");
+//         const dataVerse = e.target.getAttribute("data-verse");
+//         const tafsirDetail = await getTafsirDetail();
+//         updateUIDetail(tafsirDetail, dataVerse, tafsirSurah, navbarHeader);
+//         navbarHeader.classList.add("not-fixed");
+//         tafsirSurah.classList.add("taft");
+//         document.body.style.overflow = "hidden";
+//       }
+//     } catch (error) {
+//       console.log(`ada error bro. errornya disini => ${error}`);
+//     }
+//   });
 
-  function getTafsirDetail() {
-    return fetch(`https://equran.id/api/v2/tafsir/${nomorSurat}`)
-      .then((response) => response.json())
-      .then((response) => response);
-  }
+//   function getTafsirDetail() {
+//     return fetch(`https://equran.id/api/v2/tafsir/${nomorSurat}`)
+//       .then((response) => response.json())
+//       .then((response) => response);
+//   }
 
-  function updateUIDetail(response, dataVerse, tafsirSurah, navbarHeader) {
-    let dataTaf = response.data.tafsir;
-    let data = response.data;
-    let isiTafsir = "";
-    dataTaf.forEach((taf, index) => {
-      if (dataVerse == taf.ayat) {
-        isiTafsir += tafsirOfAyat(taf, data);
-      }
-    });
-    tafsirSurah.innerHTML = isiTafsir;
-    removeTafsir(tafsirSurah, navbarHeader);
-  }
+//   function updateUIDetail(response, dataVerse, tafsirSurah, navbarHeader) {
+//     let dataTaf = response.data.tafsir;
+//     let data = response.data;
+//     let isiTafsir = "";
+//     dataTaf.forEach((taf, index) => {
+//       if (dataVerse == taf.ayat) {
+//         isiTafsir += tafsirOfAyat(taf, data);
+//       }
+//     });
+//     tafsirSurah.innerHTML = isiTafsir;
+//     removeTafsir(tafsirSurah, navbarHeader);
+//   }
 
-  function removeTafsir(tafsirSurah, navbarHeader) {
-    window.addEventListener("click", function (e) {
-      if (e.target === tafsirSurah) {
-        tafsirSurah.classList.remove("taft");
-        document.body.style.overflow = "visible";
-        navbarHeader.classList.remove("not-fixed");
-      }
-    });
-  }
-}
+//   function removeTafsir(tafsirSurah, navbarHeader) {
+//     window.addEventListener("click", function (e) {
+//       if (e.target === tafsirSurah) {
+//         tafsirSurah.classList.remove("taft");
+//         document.body.style.overflow = "visible";
+//         navbarHeader.classList.remove("not-fixed");
+//       }
+//     });
+//   }
+// }
 
-function surahs(surat) {
-  return `
-  <div class="daftar-content" onclick="location.href='surat.html?nomorsurat=${surat.nomor}' " >
-      <div class="daftar-kiri">
-          <span><b>${surat.nomor}</b></span>
-          <div class="bawah">
-          <a class="datang">${surat.nama_latin}</a>
-              <p>(${surat.arti})</p>
-          </div>
-      </div>
-      <div class="daftar-kanan">
-          <p>${surat.nama}<br>${surat.jumlah_ayat} Ayat</p>
-      </div>
-  </div>`;  
-}
+// function surahs(surat) {
+//   return `
+//   <div class="daftar-content" onclick="location.href='surat.html?nomorsurat=${surat.nomor}' " >
+//       <div class="daftar-kiri">
+//           <span><b>${surat.nomor}</b></span>
+//           <div class="bawah">
+//           <a class="datang">${surat.nama_latin}</a>
+//               <p>(${surat.arti})</p>
+//           </div>
+//       </div>
+//       <div class="daftar-kanan">
+//           <p>${surat.nama}<br>${surat.jumlah_ayat} Ayat</p>
+//       </div>
+//   </div>`;  
+// }
 
 function headerSurah(response) {
   return `
@@ -251,4 +225,101 @@ function tafsirOfAyat(taf, data) {
                 <p>${taf.teks}</p>
             </div>
         </div>`;
+}
+
+if(document.readyState == "loading") {
+  document.addEventListener("DOMContentLoaded", start);
+} else {
+  start();
+}
+
+// start
+export function start() {
+  addSurat();
+}
+
+function addSurat() {
+  fetch(`https://equran.id/api/surat/${nomorSurat}`)
+      .then((response) => response.json())
+      .then((response) => {
+        componentSurat(response);
+        // isi surat
+        const surat = response.ayat;
+        let isiSurat = "";
+        const containerSurat = document.querySelector(
+          ".container-surat .content-surat"
+        );
+        surat.forEach((s) => {
+          isiSurat += ayat(s);
+        });
+        containerSurat.innerHTML = isiSurat;
+        
+        let mediaShare = document.querySelectorAll(".media-share");
+        shareButton(mediaShare, response);
+      });
+
+      function shareButton(mediaShare, response) {
+        mediaShare.forEach((m) => {
+          m.addEventListener("click", function () {
+            if (navigator.share) {
+              const surat = this.parentElement.parentElement;
+              const idSurat = surat.getAttribute('id');
+              
+              navigator
+              .share({
+                title: `${response.nama_latin}`,
+                text: `${response.arti}`,
+                url: `#${idSurat}`, // Menggunakan URL yang sudah dibentuk
+              })
+              .then(function () {
+                console.log("Berbagi berhasil.");
+                // Mengarahkan ke elemen dengan ID yang diinginkan
+                const targetElement = document.getElementById(idSurat);
+                if (targetElement) {
+                  targetElement.scrollIntoView();
+                }
+              })
+              .catch(function (error) {
+                console.log("Gagal berbagi:", error);
+              });
+            } else {
+              console.log("Web Share API tidak didukung di browser ini.");
+            }
+          });
+        });
+      }
+
+      function componentSurat(response) {
+        // judul surat
+        const contSurat = document.querySelector(".header-surah");
+        const suratApa = headerSurah(response);
+        contSurat.innerHTML = suratApa;
+        
+        // audio surat
+        const audSurat = document.querySelector(".audio-surah");
+        const audioApa = audioSurah(response);
+        audSurat.innerHTML = audioApa;
+        
+        // deskripsi surat
+        const deskSurah = document.querySelector(".desk-surah");
+    const deskApa = deskOfSurah(response);
+    deskSurah.innerHTML = deskApa;
+    
+    // munculkan deskripsi surat
+    const info = document.querySelector(".info");
+    const navbarHeader = document.querySelector(".navbar");
+    info.addEventListener("click", function () {
+      deskSurah.classList.add("flex");
+      document.body.style.overflow = "hidden";
+      navbarHeader.classList.add("not-fixed");
+    });
+    window.addEventListener("click", function (e) {
+      if (e.target === deskSurah) {
+        deskSurah.classList.remove("flex");
+        document.body.style.overflow = "visible";
+        navbarHeader.classList.remove("not-fixed");
+      }
+    });
+    
+  }
 }
