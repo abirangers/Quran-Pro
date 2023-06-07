@@ -113,16 +113,20 @@ export function isiSurat() {
         if (navigator.share) {
           const surat = this.parentElement.parentElement;
           const idSurat = surat.getAttribute('id');
-          const urlWithoutAnchor = `${window.location.origin}${window.location.pathname}${window.location.search}`;
-          const urlAnchor = window.location.hash = idSurat;
+  
           navigator
             .share({
               title: `${response.nama_latin}`,
               text: `${response.arti}`,
-              url: urlWithoutAnchor + "#" + urlAnchor,
+              url: `#${idSurat}`, // Menggunakan URL yang sudah dibentuk
             })
             .then(function () {
               console.log("Berbagi berhasil.");
+              // Mengarahkan ke elemen dengan ID yang diinginkan
+              const targetElement = document.getElementById(idSurat);
+              if (targetElement) {
+                targetElement.scrollIntoView();
+              }
             })
             .catch(function (error) {
               console.log("Gagal berbagi:", error);
@@ -133,6 +137,7 @@ export function isiSurat() {
       });
     });
   }
+  
   
 
   document.addEventListener("click", async function (e) {
