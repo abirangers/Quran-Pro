@@ -114,12 +114,14 @@ export function isiSurat() {
         if (navigator.share) {
           const surat = this.parentElement.parentElement;
           const idSurat = surat.getAttribute('id');
-  
+          const anchor = window.location.hash = idSurat;
+          const url = `${window.location.origin}${window.location.pathname}${window.location.search}#${anchor}`;
+
           navigator
             .share({
               title: `${response.nama_latin}`,
               text: `${response.arti}`,
-              url: `#${idSurat}`,
+              url,
             })
             .then(function () {
               console.log("Berbagi berhasil.");
