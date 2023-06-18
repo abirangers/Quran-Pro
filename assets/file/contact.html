@@ -38,19 +38,19 @@
           <div class="body">
             <div class="atas">
               <label for="name">Nama</label>
-              <input type="text" id="name" name="nama" />
+              <input type="text" id="name" name="nama" required />
             </div>
             <div class="atas">
               <label for="number">No.Telephone</label>
-              <input type="number" id="number" name="telepon" />
+              <input type="number" id="number" name="telepon" required />
             </div>
             <div class="atas">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" />
+              <input type="email" id="email" name="email" required />
             </div>
             <div class="atas">
               <label for="pesan">Pesan</label>
-              <textarea id="pesan" name="pesan"></textarea>
+              <textarea id="pesan" name="pesan" required></textarea>
             </div>
             <button type="submit" class="btn-kirim">Simpan</button>
           </div>
@@ -60,9 +60,15 @@
       <div class="social">
         <h2>Social Media & Donate</h2>
         <div class="social-content">
-          <a href="#"><img src="../img/whatsapp.png" alt="" /></a>
-          <a href="#"><img src="../img/instagram.png" alt="" /></a>
-          <a href="#"><img src="../img/tiktok.png" alt="" /></a>
+          <a href="https://wa.me/62895393384598" target="_blank"
+            ><img src="../img/whatsapp.png" alt=""
+          /></a>
+          <a href="https://www.instagram.com/b1ngers/" target="_blank"
+            ><img src="../img/instagram.png" alt=""
+          /></a>
+          <a href="https://www.tiktok.com/@abics190" target="_blank"
+            ><img src="../img/tiktok.png" alt=""
+          /></a>
           <a href="#"><img src="../img/payment.png" alt="" /></a>
         </div>
       </div>
@@ -94,7 +100,7 @@
 
           fetch(scriptURL, { method: "POST", body: new FormData(form) })
             .then((response) => {
-              console.log('success', response);
+              console.log("success", response);
               // Hilangkan loading
               btnKirim.classList.remove("loading");
               // Tampilkan alert
