@@ -19,6 +19,12 @@
   box-sizing: border-box;
 }
 
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
 :root {
   font-size: 62.5%;
   --font-xl: 3.2rem;
@@ -53,18 +59,22 @@ body {
   font-family: "JetBrains Mono", monospace;
 }
 /*==================== NAVBAR ====================*/
-.navbar {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 18.5px 0;
+
+header {
   background-color: var(--background);
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
   z-index: 9999999;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18.5px 0;
 }
 .navbar.not-fixed {
   z-index: 1;
@@ -134,37 +144,32 @@ body {
 }
 
 /*==================== HOME ====================*/
-.container-home {
-  width: 100%;
-  height: 55rem;
+#home {
   background-color: var(--background);
 }
 
 .home-content {
   width: 100%;
-  height: 100%;
+  height: 68rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   text-align: center;
   color: #fff;
-  gap: 50px;
 }
 
-.content-kiri,
+/* .content-kiri,
 .content-kanan {
   margin: -25px 15px 0;
-}
+} */
 
 .content-kanan {
-  max-width: 450px;
+  max-width: 500px;
   width: 100%;
-  height: 371px;
 }
 
 .content-image {
   width: 100%;
-  height: 100%;
   object-fit: contain;
 }
 
@@ -232,15 +237,12 @@ span {
 
 #digital .container-digital {
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   padding-top: 50px;
-  gap: 50px;
 }
 
 #digital .container-digital .digital-kiri {
-  flex-basis: 34%;
+  max-width: 50%;
 }
 
 #digital .container-digital .digital-kiri h2 {
@@ -250,10 +252,6 @@ span {
 #digital .container-digital .digital-kiri p {
   font-size: 1.6em;
   line-height: 1.6;
-}
-
-#digital .container-digital .digital-kanan {
-  width: 480px;
 }
 
 #digital .container-digital .digital-kanan img {
@@ -320,11 +318,8 @@ span {
 }
 
 #daftar-surat .container-daftar-surat {
-  max-width: 130rem;
   width: 100%;
   margin: 0 auto;
-  /* margin: 26px auto; */
-  padding: 0 25px;
 }
 
 #daftar-surat .daftar-body {
@@ -359,7 +354,6 @@ span {
 
 #daftar-surat .daftar-body .datang {
   text-decoration: none;
-  color: #000;
   color: #ffcc70;
 }
 
@@ -375,7 +369,6 @@ span {
   justify-content: center;
   align-items: center;
   color: #fff;
-  background-color: rgb(33, 37, 41);
   border-radius: 10px;
   font-size: 22px;
   padding: 15px;
@@ -695,8 +688,6 @@ i {
 }
 
 #about .container-about {
-  max-width: 1200px;
-  width: 90vw;
   margin: 0 auto;
   background-color: #fff;
   padding: 40px 24px;
@@ -732,8 +723,6 @@ i {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 1200px;
-  width: 90vw;
   margin: 0 auto;
 }
 
@@ -996,15 +985,36 @@ footer {
   }
 }
 
+@media screen and (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
 @media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
   .container-home {
     width: 100%;
     height: 70rem;
     background-color: var(--background);
   }
-}
-
-@media screen and (max-width: 1400px) {
 }
 
 @media only screen and (max-width: 992px) {
@@ -1017,7 +1027,6 @@ footer {
   .navbar nav {
     position: absolute;
     top: 75px;
-    height: 400px;
     left: 0;
     right: 0;
     height: 0;
@@ -1049,7 +1058,6 @@ footer {
   .navbar nav ul {
     display: flex;
     margin: 0 auto;
-    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -1091,13 +1099,11 @@ footer {
   }
 
   #digital .container-digital .digital-kiri {
-    flex-basis: 90%;
+    max-width: 100%;
   }
 
-  #digital .container-digital .digital-kanan {
-    flex-basis: 100%;
-    display: flex;
-    justify-content: center;
+  .container-digital {
+    flex-direction: column;
   }
 
   #daftar-surat .daftar-body {
@@ -1223,6 +1229,15 @@ footer {
     font-size: 2.4rem;
     font-family: var(--arab-font);
     font-weight: 200;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .navbar {
+    padding: 18.5px 3rem;
+  }
+  .digital-kanan {
+    margin-top: 1rem;
   }
 }
 
