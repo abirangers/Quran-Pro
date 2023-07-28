@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Viga&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
 @font-face {
   font-family: "LPMQ";
@@ -55,18 +56,21 @@ html {
 }
 
 body {
+  /* font-family: "JetBrains Mono", monospace; */
+  font-family: "Montserrat", sans-serif;
   position: relative;
-  font-family: "JetBrains Mono", monospace;
 }
 /*==================== NAVBAR ====================*/
 
 header {
-  background-color: var(--background);
+  background-color: #fff;
+  box-shadow: 0 1px 4px hsl(0 4% 15% / 10%);
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
   z-index: 9999999;
+  font-family: "Montserrat", sans-serif;
 }
 
 .navbar {
@@ -84,6 +88,8 @@ header {
   order: 2;
 }
 .navbar .kiri {
+  display: flex;
+  align-items: center;
   order: 1;
 }
 .navbar button {
@@ -92,8 +98,9 @@ header {
 
 .navbar .kiri a {
   text-decoration: none;
-  color: #fff;
-  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+  font-size: 24px;
 }
 
 .navbar nav ul {
@@ -109,9 +116,15 @@ header {
 
 .navbar nav ul li a {
   text-decoration: none;
-  color: #fff;
-  font-size: var(--font-s);
-  font-weight: var(--font-400);
+  color: #000;
+  font-size: 2rem;
+  font-weight: var(--font-500);
+  letter-spacing: -0.025em;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
 }
 
 .navbar nav ul li a.kuning {
@@ -123,8 +136,8 @@ header {
 }
 
 .navbar button {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   cursor: pointer;
   width: 60px;
@@ -140,12 +153,12 @@ header {
   font-size: 2.48rem;
   padding: 6px 12px;
   background-color: transparent;
-  color: #ffffff8c;
+  color: #000;
 }
 
 /*==================== HOME ====================*/
 #home {
-  background-color: var(--background);
+  background-color: #fff;
 }
 
 .home-content {
@@ -155,13 +168,8 @@ header {
   align-items: center;
   justify-content: space-evenly;
   text-align: center;
-  color: #fff;
+  color: #000;
 }
-
-/* .content-kiri,
-.content-kanan {
-  margin: -25px 15px 0;
-} */
 
 .content-kanan {
   max-width: 500px;
@@ -260,12 +268,7 @@ span {
 }
 /*==================== DAFTAR-SURAT ====================*/
 #daftar-surat {
-  margin-top: 80px;
-}
-
-#daftar-surat .daftar-header {
-  border-bottom: 2px solid#ffcc70;
-  padding-bottom: 18px;
+  margin-top: 40px;
 }
 
 #daftar-surat .daftar-header .daftar-image {
@@ -285,10 +288,13 @@ span {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-bottom: 2px solid rgb(226 232 240);
+  padding-bottom: 18px;
 }
 
 #daftar-surat .daftar-header h3 {
   font-size: 24px;
+  letter-spacing: 0.025em;
   margin: 10px 0;
 }
 
@@ -311,10 +317,6 @@ span {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-}
-
-#daftar-surat .daftar-header .searchInput:focus {
-  outline: 2px solid var(--background);
 }
 
 #daftar-surat .container-daftar-surat {
@@ -342,7 +344,7 @@ span {
   height: 70px;
   cursor: pointer;
   border: 2px solid #ffcc70;
-  background-color: #2e2e2e;
+  background-color: #212121;
   color: #fff;
   position: relative;
   z-index: 9999;
@@ -354,6 +356,7 @@ span {
 
 #daftar-surat .daftar-body .datang {
   text-decoration: none;
+  letter-spacing: 0.025em;
   color: #ffcc70;
 }
 
@@ -390,6 +393,7 @@ span {
 #daftar-surat .daftar-body .daftar-content .daftar-kiri .bawah p {
   font-size: 10px;
   font-weight: 600;
+  letter-spacing: 0.05em;
   margin-top: 3px;
 }
 
@@ -407,18 +411,16 @@ span {
   font-size: 13px;
   text-align: right;
   margin-right: 15px;
+  letter-spacing: 0.025em;
   line-height: 1.5;
 }
 
 /*========================== ISI-SURAT ==========================*/
-#surat {
-  margin-top: 150px;
-}
 
 .container-surat {
   padding: 40px;
   color: #212529;
-  width: 90vw;
+  /* width: 90vw; */
   max-width: 80rem;
   margin: 0 auto;
   background-color: #fff;
@@ -621,7 +623,7 @@ audio {
 .desk-surah.flex,
 .tafsir-surah.taft {
   display: flex;
-  z-index: 999;
+  z-index: 999999999;
 }
 
 .content-desk-surah,
@@ -690,7 +692,7 @@ i {
 #about .container-about {
   margin: 0 auto;
   background-color: #fff;
-  padding: 40px 24px;
+  /* padding: 40px 24px; */
 }
 
 #about .container-about h2 {
@@ -727,7 +729,7 @@ i {
 }
 
 #contact .container-contact h3 {
-  font-size: var(--font-m);
+  font-size: var(--font-xl);
   font-weight: var(--font-500);
   margin-bottom: 28px;
   text-align: center;
@@ -1030,19 +1032,20 @@ footer {
     left: 0;
     right: 0;
     height: 0;
-    width: 100vw;
     z-index: 99999;
-    transition: 0.4s;
-    background-color: var(--background);
+    transition: all 0.4s;
+    background-color: #fff;
+    box-shadow: 0 1px 4px hsl(0 4% 15% / 10%);
     overflow: hidden;
-    -webkit-transition: 0.4s;
-    -moz-transition: 0.4s;
-    -ms-transition: 0.4s;
-    -o-transition: 0.4s;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    -o-transition: all 0.4s;
   }
 
   .navbar nav.aktif {
-    height: 156px;
+    height: 162px;
+    padding: 1.2rem 0;
   }
 
   .navbar nav {
@@ -1062,21 +1065,6 @@ footer {
     align-items: center;
     flex-direction: column;
     gap: 12px;
-  }
-
-  .navbar nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-size: var(--font-s);
-    font-weight: var(--font-400);
-  }
-
-  .navbar nav ul li a.kuning {
-    color: var(--font-side);
-  }
-
-  .navbar nav ul li a:hover {
-    color: var(--font-side);
   }
 
   .navbar button {
@@ -1234,7 +1222,7 @@ footer {
 
 @media screen and (max-width: 576px) {
   .navbar {
-    padding: 18.5px 3rem;
+    padding: 18.5px 1.3rem;
   }
   .digital-kanan {
     margin-top: 1rem;

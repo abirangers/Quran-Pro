@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../../style.css" />
     <script type="module" src="index.js"></script>
   </head>
-  <body id="body" style="background: url(../img/bukanangka.jpg)">
+  <body id="body">
     <!-- backtoTop -->
     <a href="#body" id="arrow"
       ><i class="fa-solid fa-arrow-up" id="arrowTop"></i
@@ -21,7 +21,10 @@
     <header>
       <div class="container">
         <div class="navbar">
-          <div class="kiri"><a href="../../index.html">Qur'an Pro</a></div>
+          <div class="kiri">
+            <img src="../img/logo.png" alt="" width="55px" />
+            <a href="../../index.html">Qur'an Pro</a>
+          </div>
           <button>
             <i class="fa-solid fa-bars fa-2xl" aria-label="bars"></i>
           </button>
@@ -38,15 +41,14 @@
     </header>
 
     <div id="daftar-surat">
-      <div class="container">
-        <div class="daftar-header">
-          <div class="daftar-image">
-            <img src="../img/alquranull-karim.svg" alt="" />
-          </div>
-          <input type="text" placeholder="Cari Surah..." class="searchInput" />
-          <h3>Daftar Surah</h3>
+      <div class="daftar-header">
+        <div class="daftar-image">
+          <img src="../img/alquranull-karim.svg" alt="" />
         </div>
-        <!-- <hr> -->
+        <input type="text" placeholder="Cari Surah..." class="searchInput" />
+        <h3>Daftar Surah</h3>
+      </div>
+      <div class="container">
         <div class="container-daftar-surat">
           <div class="daftar-body"></div>
         </div>
