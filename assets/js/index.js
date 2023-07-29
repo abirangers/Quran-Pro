@@ -30,7 +30,7 @@ export const daftarSurat = () => {
       searchInput.addEventListener("keyup", function (event) {
         const q = event.target.value.toLowerCase();
         rows.forEach((row) => {
-          row.querySelector(".datang").textContent.toLowerCase().startsWith(q)
+          row.querySelector(".datang").textContent.toLowerCase().includes(q)
             ? (row.style.display = "")
             : (row.style.display = "none");
         });

@@ -10,6 +10,7 @@
       href="../img/vector-al-quran-vector-svg-ai-removebg-preview.png"
     />
     <link rel="stylesheet" href="../../style.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script type="module" src="../js/index.js"></script>
   </head>
   <body id="body">
@@ -20,9 +21,6 @@
             <img src="../img/logo.png" alt="" width="55px" />
             <a href="../../index.html">Qur'an Pro</a>
           </div>
-          <button>
-            <i class="fa-solid fa-bars fa-2xl" aria-label="bars"></i>
-          </button>
           <nav>
             <ul>
               <li><a href="../../index.html">Home</a></li>
@@ -31,63 +29,68 @@
               <li><a href="contact.html" class="kuning">Contact</a></li>
             </ul>
           </nav>
+
+          <button>
+            <i class="fa-solid fa-bars fa-2xl" aria-label="bars"></i>
+          </button>
         </div>
       </div>
     </header>
+    <main data-aos="fade-up" data-aos-duration="2000">
+      <div id="contact">
+        <div class="container">
+          <div class="container-contact">
+            <h3>Kirim Pesan Disini 😊😊</h3>
+            <form name="quran-pro-contact-form">
+              <div class="title">Kirim Pesan</div>
+              <div class="success-form">
+                terima kasih pesan sudah dikirim😊👌
+                <i class="fa-regular fa-xmark close-form-message"></i>
+              </div>
+              <div class="body">
+                <div class="atas">
+                  <label for="name">Nama</label>
+                  <input type="text" id="name" name="nama" required />
+                </div>
+                <div class="atas">
+                  <label for="number">No.Telephone</label>
+                  <input type="number" id="number" name="telepon" required />
+                </div>
+                <div class="atas">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+                <div class="atas">
+                  <label for="pesan">Pesan</label>
+                  <textarea id="pesan" name="pesan" required></textarea>
+                </div>
+                <button type="submit" class="btn-kirim">Simpan</button>
+              </div>
+            </form>
+          </div>
+        </div>
 
-    <div id="contact">
-      <div class="container">
-        <div class="container-contact">
-          <h3>Kirim Pesan Disini 😊😊</h3>
-          <form name="quran-pro-contact-form">
-            <div class="title">Kirim Pesan</div>
-            <div class="success-form">
-              terima kasih pesan sudah dikirim😊👌
-              <i class="fa-regular fa-xmark close-form-message"></i>
-            </div>
-            <div class="body">
-              <div class="atas">
-                <label for="name">Nama</label>
-                <input type="text" id="name" name="nama" required />
-              </div>
-              <div class="atas">
-                <label for="number">No.Telephone</label>
-                <input type="number" id="number" name="telepon" required />
-              </div>
-              <div class="atas">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-              <div class="atas">
-                <label for="pesan">Pesan</label>
-                <textarea id="pesan" name="pesan" required></textarea>
-              </div>
-              <button type="submit" class="btn-kirim">Simpan</button>
-            </div>
-          </form>
+        <div class="social">
+          <h2>Social Media & Donate</h2>
+          <div class="social-content">
+            <a href="https://wa.me/62895393384598" target="_blank"
+              ><img src="../img/whatsapp.png" alt=""
+            /></a>
+            <a href="https://www.instagram.com/b1ngers/" target="_blank"
+              ><img src="../img/instagram.png" alt=""
+            /></a>
+            <a href="https://www.tiktok.com/@abics190" target="_blank"
+              ><img src="../img/tiktok.png" alt=""
+            /></a>
+            <a href="#"><img src="../img/payment.png" alt="" /></a>
+          </div>
         </div>
       </div>
 
-      <div class="social">
-        <h2>Social Media & Donate</h2>
-        <div class="social-content">
-          <a href="https://wa.me/62895393384598" target="_blank"
-            ><img src="../img/whatsapp.png" alt=""
-          /></a>
-          <a href="https://www.instagram.com/b1ngers/" target="_blank"
-            ><img src="../img/instagram.png" alt=""
-          /></a>
-          <a href="https://www.tiktok.com/@abics190" target="_blank"
-            ><img src="../img/tiktok.png" alt=""
-          /></a>
-          <a href="#"><img src="../img/payment.png" alt="" /></a>
-        </div>
-      </div>
-    </div>
-
-    <footer style="padding-top: 0">
-      Copyright 2023 Qur'an Pro | Devacto Rekayasa Perangkat Lunak
-    </footer>
+      <footer style="padding-top: 0">
+        Copyright 2023 Qur'an Pro | Devacto Rekayasa Perangkat Lunak
+      </footer>
+    </main>
 
     <script type="module">
       import { navButton } from "../js/index.js";
@@ -144,5 +147,10 @@
       src="https://kit.fontawesome.com/7ff3bc0990.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="../js/index.js"></script>
   </body>
 </html>

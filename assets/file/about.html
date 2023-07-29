@@ -14,65 +14,70 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Viga&display=swap"
       rel="stylesheet"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script type="module" src="../js/index.js"></script>
   </head>
   <body id="body">
-    <header>
-      <div class="container">
-        <div class="navbar">
-          <div class="kiri">
-            <img src="../img/logo.png" alt="" width="55px" />
-            <a href="../../index.html">Qur'an Pro</a>
+    <main>
+      <header>
+        <div class="container">
+          <div class="navbar">
+            <div class="kiri">
+              <img src="../img/logo.png" alt="" width="55px" />
+              <a href="../../index.html">Qur'an Pro</a>
+            </div>
+            <nav>
+              <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="quran.html">Qur'an</a></li>
+                <li><a href="about.html" class="kuning">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </nav>
+
+            <button>
+              <i class="fa-solid fa-bars fa-2xl" aria-label="bars"></i>
+            </button>
           </div>
-          <button>
-            <i class="fa-solid fa-bars fa-2xl" aria-label="bars"></i>
-          </button>
-          <nav>
-            <ul>
-              <li><a href="../../index.html">Home</a></li>
-              <li><a href="quran.html">Qur'an</a></li>
-              <li><a href="about.html" class="kuning">About</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </nav>
         </div>
-      </div>
-    </header>
+      </header>
 
-    <div id="about">
-      <div class="container">
-        <div class="about-head">
-          <h2>Profile AL-Qur'an Digital</h2>
+      <section data-aos="fade-up" data-aos-duration="2000">
+        <div id="about">
+          <div class="container">
+            <div class="about-head">
+              <h2>Profile AL-Qur'an Digital</h2>
+            </div>
+            <div class="container-about">
+              <h2>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيم</h2>
+              <p>
+                Qur'an Pro adalah Al-Qura'an Digital berbasis Website dengan
+                menyediakan lengkap 30 Juz surah Al-Quran. Tujuan Website Qur'an
+                Pro ini Dibuat Agar Orang dapat Mengakses AL-Qur'an dengan mudah
+                dan tidak perlu mendownload aplikasi-aplikasi lain, cukup
+                membuka website ini anda akan langsung disungguhkan dengan 30
+                juz Al-Qur'an lengkap beserta surah dan artinya
+              </p>
+              <p>
+                Qur'an Pro dibuat Oleh
+                <a href="#" style="text-decoration: none"
+                  >Devacto Rekayasa Perangkat Lunak</a
+                >. Semoga dengan adanya Qur'an Pro ini semua orang akan lebih
+                mudah membaca/mengakses/melihat isi atau bacaan Al-Qur'an dengan
+                Mudah dan simple. Kami Doakan semoga Website ini Bisa menjadi
+                Amal Jariyah untuk kami dan orang yang membaca/mengunjungi
+                website ini. Kami Ucapkan Terima Kasih sudah mengunjungi
+                terlebih lagi orang yang sudah membaca Al-Qur'an di Website ini
+              </p>
+              <h4>اَلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَا تُهُ</h4>
+            </div>
+          </div>
         </div>
-        <div class="container-about">
-          <h2>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيم</h2>
-          <p>
-            Qur'an Pro adalah Al-Qura'an Digital berbasis Website dengan
-            menyediakan lengkap 30 Juz surah Al-Quran. Tujuan Website Qur'an Pro
-            ini Dibuat Agar Orang dapat Mengakses AL-Qur'an dengan mudah dan
-            tidak perlu mendownload aplikasi-aplikasi lain, cukup membuka
-            website ini anda akan langsung disungguhkan dengan 30 juz Al-Qur'an
-            lengkap beserta surah dan artinya
-          </p>
-          <p>
-            Qur'an Pro dibuat Oleh
-            <a href="#" style="text-decoration: none"
-              >Devacto Rekayasa Perangkat Lunak</a
-            >. Semoga dengan adanya Qur'an Pro ini semua orang akan lebih mudah
-            membaca/mengakses/melihat isi atau bacaan Al-Qur'an dengan Mudah dan
-            simple. Kami Doakan semoga Website ini Bisa menjadi Amal Jariyah
-            untuk kami dan orang yang membaca/mengunjungi website ini. Kami
-            Ucapkan Terima Kasih sudah mengunjungi terlebih lagi orang yang
-            sudah membaca Al-Qur'an di Website ini
-          </p>
-          <h4>اَلسَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَا تُهُ</h4>
-        </div>
-      </div>
-    </div>
-    <footer>
-      Copyright 2023 Qur'an Pro | Devacto Rekayasa Perangkat Lunak
-    </footer>
-
+        <footer>
+          Copyright 2023 Qur'an Pro | Devacto Rekayasa Perangkat Lunak
+        </footer>
+      </section>
+    </main>
     <script type="module">
       import { navButton } from "../js/index.js";
       navButton();
@@ -81,5 +86,10 @@
       src="https://kit.fontawesome.com/7ff3bc0990.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="../js/index.js"></script>
   </body>
 </html>

@@ -12,49 +12,52 @@
     <link rel="stylesheet" href="../../style.css" />
     <script type="module" src="../js/index.js"></script>
   </head>
-  <body id="body">
-    <a href="#body" id="arrow"
-      ><i class="fa-solid fa-arrow-up" id="arrowTop"></i
-    ></a>
 
-    <header>
-      <div class="container">
-        <div class="navbar">
-          <div class="kiri">
-            <img src="../img/logo.png" alt="" width="55px" />
-            <a href="../../index.html">Qur'an Pro</a>
+  <body id="body">
+    <main>
+      <a href="#body" id="arrow"
+        ><i class="fa-solid fa-arrow-up" id="arrowTop"></i
+      ></a>
+
+      <header>
+        <div class="container">
+          <div class="navbar">
+            <div class="kiri">
+              <img src="../img/logo.png" alt="" width="55px" />
+              <a href="../../index.html">Qur'an Pro</a>
+            </div>
+            <nav>
+              <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="quran.html">Qur'an</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </nav>
+              <button>
+                <i class="fa-solid fa-bars fa-2xl" aria-label="bars"></i>
+              </button>
           </div>
-          <button>
-            <i class="fa-solid fa-bars fa-2xl" aria-label="bars"></i>
-          </button>
-          <nav>
-            <ul>
-              <li><a href="../../index.html">Home</a></li>
-              <li><a href="quran.html">Qur'an</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </nav>
+        </div>
+      </header>
+
+      <div id="surat">
+        <div class="container-surat">
+          <a href="quran.html">kembali</a>
+          <div class="header-surah"></div>
+          <div class="audio-surah"></div>
+          <div class="content-surat"></div>
         </div>
       </div>
-    </header>
 
-    <div id="surat">
-      <div class="container-surat">
-        <a href="quran.html">kembali</a>
-        <div class="header-surah"></div>
-        <div class="audio-surah"></div>
-        <div class="content-surat"></div>
-      </div>
-    </div>
+      <div class="desk-surah"></div>
 
-    <div class="desk-surah"></div>
+      <div class="tafsir-surah"></div>
 
-    <div class="tafsir-surah"></div>
-
-    <footer>
-      Copyright 2023 Qur'an Pro | Devacto Rekayasa Perangkat Lunak
-    </footer>
+      <footer>
+        Copyright 2023 Qur'an Pro | Devacto Rekayasa Perangkat Lunak
+      </footer>
+    </main>
     <script type="module">
       import { isiSurat, arrowBtn, navButton } from "../js/index.js";
       arrowBtn();
@@ -65,5 +68,6 @@
       src="https://kit.fontawesome.com/7ff3bc0990.js"
       crossorigin="anonymous"
     ></script>
+    <script src="../js/index.js"></script>
   </body>
 </html>
