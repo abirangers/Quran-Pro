@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script type="module" src="assets/js/index.js"></script>
   </head>
   <body id="body">
@@ -59,11 +60,11 @@
 
     <div id="digital">
       <div class="container">
-        <h2 align="center" class="digital-title">
+        <h2 align="center" class="digital-title" data-aos="fade-up" data-aos-duration="2000">
           Al-Qur'an Digital Berbasis Website
         </h2>
         <div class="container-digital">
-          <div class="digital-kiri">
+          <div class="digital-kiri" data-aos="fade-right" data-aos-duration="2000">
             <h2>Ustadz Adi Hidayat</h2>
             <p>
               Website Qur'an Pro ini bisa membuat orang lebih mudah menemukan
@@ -72,7 +73,7 @@
               simple dan mudah
             </p>
           </div>
-          <div class="digital-kanan">
+          <div class="digital-kanan" data-aos="fade-left" data-aos-duration="2000">
             <img src="assets/img/3437513669-removebg-preview.png" alt="" />
           </div>
         </div>
@@ -91,5 +92,9 @@
       src="https://kit.fontawesome.com/7ff3bc0990.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

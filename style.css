@@ -178,7 +178,17 @@ header {
 
 .content-image {
   width: 100%;
+  animation: upDownImage 2s infinite alternate-reverse ease-in-out;
   object-fit: contain;
+}
+
+@keyframes upDownImage {
+  0% {
+    transform: translateY(32px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .home-content .content-kiri h2,
