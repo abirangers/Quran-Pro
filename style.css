@@ -229,28 +229,6 @@ header {
 .home-content .content-kiri h2 {
   position: relative;
 }
-.home-content .content-kiri h2:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  border-left: 2px solid #0a45f2;
-  animation: typing 2000ms steps(35) forwards;
-  -webkit-animation: typing 2000ms steps(35) forwards;
-}
-
-@keyframes typing {
-  from {
-    left: 0%;
-  }
-  to {
-    left: 100%;
-    visibility: hidden;
-  }
-}
 
 .home-content .content-kiri h2,
 span {
