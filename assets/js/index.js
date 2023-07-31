@@ -1,10 +1,11 @@
-export const navButton = () => {
+const navButton = () => {
   const btn = document.querySelector("button");
   btn.addEventListener("click", function () {
     const navigasiBar = document.querySelector("nav");
     navigasiBar.classList.toggle("aktif");
   });
 };
+navButton();
 
 export const arrowBtn = () => {
   var arrow = document.querySelector("#arrow");
@@ -12,6 +13,7 @@ export const arrowBtn = () => {
     arrow.classList.toggle("scrolled", window.scrollY > 500);
   });
 };
+arrowBtn();
 
 const dBody = document.querySelector(".daftar-body");
 export const daftarSurat = () => {

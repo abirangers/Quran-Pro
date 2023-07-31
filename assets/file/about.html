@@ -16,6 +16,10 @@
     />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script type="module" src="../js/index.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/rough-notation?module"
+    ></script>
   </head>
   <body id="body">
     <main>
@@ -42,7 +46,7 @@
         </div>
       </header>
 
-      <section data-aos="fade-up" data-aos-duration="1800">
+      <section id="section-about" data-aos="fade-up" data-aos-duration="1800">
         <div id="about">
           <div class="container">
             <div class="about-head">
@@ -60,7 +64,7 @@
               </p>
               <p>
                 Qur'an Pro dibuat Oleh
-                <a href="#" style="text-decoration: none"
+                <a id="dss-tagline" href="#" style="text-decoration: none"
                   >Devacto Rekayasa Perangkat Lunak</a
                 >. Semoga dengan adanya Qur'an Pro ini semua orang akan lebih
                 mudah membaca/mengakses/melihat isi atau bacaan Al-Qur'an dengan
@@ -78,10 +82,6 @@
         </footer>
       </section>
     </main>
-    <script type="module">
-      import { navButton } from "../js/index.js";
-      navButton();
-    </script>
     <script
       src="https://kit.fontawesome.com/7ff3bc0990.js"
       crossorigin="anonymous"
@@ -91,5 +91,30 @@
       AOS.init();
     </script>
     <script src="../js/index.js"></script>
+    <script type="module">
+      import { annotate } from "https://unpkg.com/rough-notation?module";
+
+      const dssTagline = document.getElementById("dss-tagline");
+      const a1 = annotate(dssTagline, {
+        type: "highlight",
+        color: "#F31559",
+      });
+
+      function hideAnnotation(element) {
+        const windowWidth = window.innerWidth;
+
+        if (windowWidth < 768) {
+          a1.hide();
+          dssTagline.style.color = "#000";
+        } else {
+          dssTagline.style.color = "#fff";
+          a1.show();
+        }
+      }
+
+      hideAnnotation();
+
+      window.addEventListener("resize", hideAnnotation);
+    </script>
   </body>
 </html>

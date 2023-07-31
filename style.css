@@ -58,10 +58,10 @@ body {
   /* font-family: "JetBrains Mono", monospace; */
   font-family: "Poppins", sans-serif;
   position: relative;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
-.loading-screen {
+/* .loading-screen {
   position: relative;
   padding-left: 0;
   padding-right: 0;
@@ -80,7 +80,7 @@ body {
   overflow: hidden;
   z-index: 99999999;
   pointer-events: none;
-}
+} */
 
 /*==================== NAVBAR ====================*/
 
@@ -100,7 +100,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18.5px 0;
+  padding: 16px 0;
 }
 .navbar.not-fixed {
   z-index: 1;
@@ -189,7 +189,9 @@ header {
 
 .home-content {
   width: 100%;
+  min-height: 78vh;
   height: 60rem;
+  /* height: 60rem; */
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -296,6 +298,7 @@ span {
   display: flex;
   align-items: center;
   padding-top: 50px;
+  overflow: hidden;
 }
 
 #digital .container-digital .digital-kiri {
@@ -1142,6 +1145,7 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-top: 1.6rem;
   }
 
   .content-image {
