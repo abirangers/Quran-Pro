@@ -569,7 +569,7 @@ span {
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
-  background-color: #eee;
+  background-color: rgba(243, 244, 246, 0.9);
   border-radius: 0.5rem;
   -webkit-border-radius: 0.5rem;
   -moz-border-radius: 0.5rem;
