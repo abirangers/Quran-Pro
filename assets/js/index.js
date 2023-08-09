@@ -13,7 +13,6 @@ export const arrowBtn = () => {
     arrow.classList.toggle("scrolled", window.scrollY > 500);
   });
 };
-arrowBtn();
 
 const dBody = document.querySelector(".daftar-body");
 export const daftarSurat = () => {
@@ -58,9 +57,40 @@ export const isiSurat = () => {
   const getSurah = async () => {
     const apiSurat = await fetch(`https://equran.id/api/surat/${nomorSurat}`);
     const dataSurat = await apiSurat.json();
+
     console.log(dataSurat);
 
     const surat = dataSurat.ayat;
+
+    // console.log(dataSurat.surat_selanjutnya);
+
+    // const currenturl = window.location.href;
+
+    // const url = new URL(currenturl);
+
+    // const nomsur = url.searchParams.get("nomorsurat");
+
+    // if (nomsur !== null) {
+    //   const newNomsur = nomsur + dataSurat.surat_selanjutnya;
+    //   url.searchParams.set("nomorsurat", newNomsur.toString());
+    //   const newUrl = url.toString();
+    //   console.log(newUrl);
+    // }
+
+    const buttonSuratSelanjutnya = document.querySelector(".lanjutan");
+    console.log(buttonSuratSelanjutnya);
+    buttonSuratSelanjutnya.addEventListener("click", () => {
+      const currenturl = window.location.href;
+      const url = new URL(currenturl);
+      const nomsur = url.searchParams.get("nomorsurat");
+      if (nomsur !== null) {
+        const dataSuratSelanjutnya = dataSurat.surat_selanjutnya.id;
+        url.searchParams.set("nomorsurat", dataSuratSelanjutnya.toString());
+        const newUrl = url.toString();
+        window.location.href = newUrl;
+      }
+    });
+
     let isiSurat = "";
     const containerSurat = document.querySelector(
       ".container-surat .content-surat"
