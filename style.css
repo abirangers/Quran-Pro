@@ -75,7 +75,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 0;
+  padding: 12px 0;
 }
 .navbar.not-fixed {
   z-index: 1;
@@ -456,14 +456,13 @@ span {
   background-color: #fff;
 }
 
-.container-surat a {
+/* .container-surat a {
   display: inline-block;
   text-decoration: none;
   color: var(--font-white);
   background-color: #0a45f2;
   font-size: var(--font-xs);
   font-weight: var(--font-400);
-  /* font-family: "Poppins", sans-serif; */
   text-transform: capitalize;
   letter-spacing: 0.8px;
   padding: 8px 12px;
@@ -482,7 +481,7 @@ span {
 
 .container-surat a:hover {
   opacity: 0.85;
-}
+} */
 
 .header-surah {
   position: relative;
@@ -718,8 +717,6 @@ i {
   text-transform: capitalize;
   letter-spacing: 0.8px;
   padding: 8px 12px;
-  margin-bottom: 15px;
-  margin-right: 40px;
   cursor: pointer;
   border-radius: 5px;
   -webkit-border-radius: 5px;
