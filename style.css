@@ -456,7 +456,7 @@ span {
   background-color: #fff;
 }
 
-/* .container-surat a {
+.container-surat a {
   display: inline-block;
   text-decoration: none;
   color: var(--font-white);
@@ -481,7 +481,7 @@ span {
 
 .container-surat a:hover {
   opacity: 0.85;
-} */
+}
 
 .header-surah {
   position: relative;
